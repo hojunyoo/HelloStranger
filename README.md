@@ -17,7 +17,7 @@ RoR(Ruby on Rails)
   * front-end-development-framework : semantic-ui
 <br><br>
 3. 데이터베이스  
-오라클  
+MySQL  
 <br><br>
 4. 서버 테스트  
 **가상 서버 c9.io**
