@@ -68,6 +68,7 @@ public class QuickMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        //fragment를 view로 추가 한 후 layout안의 view들을 fragment의 view를 이용해 접근한다.
         View view = inflater.inflate(R.layout.fragment_quick_menu, container, false);
         final ViewFlipper viewFlipper = (ViewFlipper)view.findViewById(R.id.viewFlipper);
         Button prev = (Button)view.findViewById(R.id.previous);
