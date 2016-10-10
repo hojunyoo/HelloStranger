@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ViewFlipper;
 
 import com.example.secpc.hellostranger.R;
 
@@ -66,7 +68,26 @@ public class QuickMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_quick_menu, container, false);
+        View view = inflater.inflate(R.layout.fragment_quick_menu, container, false);
+        final ViewFlipper viewFlipper = (ViewFlipper)view.findViewById(R.id.viewFlipper);
+        Button prev = (Button)view.findViewById(R.id.previous);
+        prev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewFlipper.showPrevious();
+            }
+        });
+        Button next = (Button)view.findViewById(R.id.next);
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                viewFlipper.showNext();
+            }
+        });
+        return view;
+    }
+    public void prev(View view){
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event

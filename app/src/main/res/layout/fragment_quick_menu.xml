@@ -4,16 +4,59 @@
     android:layout_height="match_parent"
     tools:context=".activity.QuickMenuFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-    <RatingBar
+    <ViewFlipper
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/ratingBar"
-        android:layout_gravity="center_horizontal|top" />
+        android:id="@+id/viewFlipper"
+        android:layout_gravity="left|top" >
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/ic_menu_camera"
+            android:id="@+id/flipper_imageView1" />
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:src="@drawable/ic_menu_slideshow"
+            android:id="@+id/flipper_imageView2" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/flipper_button7" />
+
+            <RatingBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/flipper_ratingBar"
+                android:layout_below="@+id/flipper_button7"/>
+        </RelativeLayout>
+
+    </ViewFlipper>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="previous"
+        android:id="@+id/previous"
+       android:layout_gravity="left|bottom" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="next"
+        android:id="@+id/next"
+       android:layout_gravity="right|bottom" />
 
 </FrameLayout>
