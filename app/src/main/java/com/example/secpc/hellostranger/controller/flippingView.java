@@ -22,7 +22,7 @@ import com.example.secpc.hellostranger.R;
 public class flippingView extends ViewGroup {
     private static final String TAG = "flippingView";
 
-    // 드래그 속도와 방향을 판단하는 클래스
+    // 드래그 속도와 방향을 판단하는 클래스 g
     private VelocityTracker mVelocityTracker = null;
 
     // 화면 전환을 위한 드래그 속도의 최소값 pixel/s (100 정도으로 속도로 이동하면 화면전환으로 인식)
