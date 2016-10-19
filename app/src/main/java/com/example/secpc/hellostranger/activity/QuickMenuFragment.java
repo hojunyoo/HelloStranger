@@ -39,11 +39,10 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
     private OnFragmentInteractionListener mListener;
 
     private View flipview;
-    private int _xDelta;
-    private int _yDelta;
     private VelocityTracker mVelocityTracker = null;
-    private int[] origin = new int[2];
 
+    float xCoOrdinate;
+    float yCoOrdinate;
 
     public QuickMenuFragment() {
         // Required empty public constructor
@@ -108,69 +107,47 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
         }
     }
     public boolean onTouch(View view, MotionEvent event) {
-        final int X = (int) event.getRawX();
-        final int Y = (int) event.getRawY();
-        float dX = 0, dY=0;
-        Log.d("x :", String.valueOf(X));
-        Log.d("y :", String.valueOf(Y));
-
-        if (mVelocityTracker == null)
+//        final int X = (int) event.getRawX();
+//        final int Y = (int) event.getRawY();
+        if (mVelocityTracker == null) {
             mVelocityTracker = VelocityTracker.obtain();
+        }
         mVelocityTracker.addMovement(event);
-
         switch (event.getAction()) {
+
             case MotionEvent.ACTION_DOWN:
-
-                dX = view.getX() - event.getRawX();
-                dY = view.getY() - event.getRawY();
+                xCoOrdinate = view.getX() - event.getRawX();
+                yCoOrdinate = view.getY() - event.getRawY();
                 break;
-
             case MotionEvent.ACTION_MOVE:
+                view.animate().x(event.getRawX() + xCoOrdinate).y(event.getRawY() + yCoOrdinate).setDuration(0).start();
 
-                view.animate()
-                        .x(event.getRawX() + dX)
-                        .y(event.getRawY() + dY)
-                        .setDuration(0)
-                        .start();
+                mVelocityTracker.computeCurrentVelocity(1000);
+                int v = (int) mVelocityTracker.getXVelocity(); // x 축 이동 속도를 구함
+
+                if(v > 600){
+                    startTranslate(view);
+                }
+                else{
+                    startTranslate2(view);
+                }
+//
+//                TranslateAnimation ani = new TranslateAnimation(
+//                        Animation.RELATIVE_TO_SELF, X,
+//                        Animation.RELATIVE_TO_SELF, X,
+//                        Animation.RELATIVE_TO_SELF, Y,
+//                        Animation.RELATIVE_TO_SELF, Y);
+//                ani.setFillAfter(true); // 애니메이션 후 이동한좌표에
+//                ani.setDuration(6000); //지속시간
+//
+//                view.startAnimation(ani);
                 break;
+
             default:
                 return false;
-            case MotionEvent.ACTION_UP:
-                Log.i("ac ", "ACTION_UP");
-                if (mVelocityTracker != null) {
-                    mVelocityTracker.recycle();
-                    mVelocityTracker = null;
-                }
 
-                break;
 //            case MotionEvent.ACTION_MOVE:
 //                Log.i("ac ", "ACTION_MOVE");
-//
-//                mVelocityTracker.computeCurrentVelocity(1000);
-//                int v = (int) mVelocityTracker.getXVelocity(); // x 축 이동 속도를 구함
-//                Log.d("mVelocityTracker : " ,String.valueOf(v));
-//                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
-//                layoutParams.leftMargin = X - _xDelta;
-//                layoutParams.topMargin = Y - _yDelta;
-//                view.setLayoutParams(layoutParams);
-//
-//                if(v > 600){
-//                    startTranslate(view);
-//                }
-//                else{
-//                    startTranslate2(view);
-//                }
-////
-////                TranslateAnimation ani = new TranslateAnimation(
-////                        Animation.RELATIVE_TO_SELF, X,
-////                        Animation.RELATIVE_TO_SELF, X,
-////                        Animation.RELATIVE_TO_SELF, Y,
-////                        Animation.RELATIVE_TO_SELF, Y);
-////                ani.setFillAfter(true); // 애니메이션 후 이동한좌표에
-////                ani.setDuration(6000); //지속시간
-////
-////                view.startAnimation(ani);
-//                break;
 //
         }
         return true;
@@ -178,11 +155,11 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
     private void startTranslate2(View view) {
         TranslateAnimation ani = new TranslateAnimation(
                 Animation.RELATIVE_TO_SELF, 0,
-                Animation.ABSOLUTE, 0,
+                Animation.ABSOLUTE, -view.getX(),
                 Animation.RELATIVE_TO_SELF, 0,
-                Animation.ABSOLUTE, 0);
+                Animation.ABSOLUTE, -view.getY());
         ani.setFillAfter(true); // 애니메이션 후 이동한좌표에
-        ani.setDuration(1000); //지속시간
+        ani.setDuration(500); //지속시간
 
         view.startAnimation(ani);
 

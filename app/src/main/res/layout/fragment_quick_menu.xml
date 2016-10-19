@@ -22,8 +22,9 @@
        android:layout_gravity="right|bottom" />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         android:src="@drawable/ic_menu_gallery"
         android:id="@+id/flipview"
         android:layout_gravity="left|top" />
