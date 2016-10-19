@@ -4,23 +4,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.QuickMenuFragment">
 
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="previous"
-        android:id="@+id/previous"
-       android:layout_gravity="left|bottom" />
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="next"
-        android:id="@+id/next"
-       android:layout_gravity="right|bottom" />
-
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
