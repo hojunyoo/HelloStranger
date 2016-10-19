@@ -4,9 +4,14 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ViewFlipper;
 
@@ -21,7 +26,7 @@ import com.example.secpc.hellostranger.R;
  * Use the {@link QuickMenuFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QuickMenuFragment extends Fragment {
+public class QuickMenuFragment extends Fragment implements View.OnTouchListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,6 +37,13 @@ public class QuickMenuFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private View flipview;
+    private int _xDelta;
+    private int _yDelta;
+    private VelocityTracker mVelocityTracker = null;
+    private int[] origin = new int[2];
+
 
     public QuickMenuFragment() {
         // Required empty public constructor
@@ -70,21 +82,8 @@ public class QuickMenuFragment extends Fragment {
         // Inflate the layout for this fragment
         //fragment를 view로 추가 한 후 layout안의 view들을 fragment의 view를 이용해 접근한다.
         View view = inflater.inflate(R.layout.fragment_quick_menu, container, false);
-        final ViewFlipper viewFlipper = (ViewFlipper)view.findViewById(R.id.viewFlipper);
-        Button prev = (Button)view.findViewById(R.id.previous);
-        prev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewFlipper.showPrevious();
-            }
-        });
-        Button next = (Button)view.findViewById(R.id.next);
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewFlipper.showNext();
-            }
-        });
+        flipview = view.findViewById(R.id.flipview);
+        flipview.setOnTouchListener(this);
         return view;
     }
     public void prev(View view){
@@ -108,7 +107,98 @@ public class QuickMenuFragment extends Fragment {
                     + " must implement OnFragmentInteractionListener");
         }
     }
+    public boolean onTouch(View view, MotionEvent event) {
+        final int X = (int) event.getRawX();
+        final int Y = (int) event.getRawY();
+        float dX = 0, dY=0;
+        Log.d("x :", String.valueOf(X));
+        Log.d("y :", String.valueOf(Y));
 
+        if (mVelocityTracker == null)
+            mVelocityTracker = VelocityTracker.obtain();
+        mVelocityTracker.addMovement(event);
+
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:
+
+                dX = view.getX() - event.getRawX();
+                dY = view.getY() - event.getRawY();
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+
+                view.animate()
+                        .x(event.getRawX() + dX)
+                        .y(event.getRawY() + dY)
+                        .setDuration(0)
+                        .start();
+                break;
+            default:
+                return false;
+            case MotionEvent.ACTION_UP:
+                Log.i("ac ", "ACTION_UP");
+                if (mVelocityTracker != null) {
+                    mVelocityTracker.recycle();
+                    mVelocityTracker = null;
+                }
+
+                break;
+//            case MotionEvent.ACTION_MOVE:
+//                Log.i("ac ", "ACTION_MOVE");
+//
+//                mVelocityTracker.computeCurrentVelocity(1000);
+//                int v = (int) mVelocityTracker.getXVelocity(); // x 축 이동 속도를 구함
+//                Log.d("mVelocityTracker : " ,String.valueOf(v));
+//                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view.getLayoutParams();
+//                layoutParams.leftMargin = X - _xDelta;
+//                layoutParams.topMargin = Y - _yDelta;
+//                view.setLayoutParams(layoutParams);
+//
+//                if(v > 600){
+//                    startTranslate(view);
+//                }
+//                else{
+//                    startTranslate2(view);
+//                }
+////
+////                TranslateAnimation ani = new TranslateAnimation(
+////                        Animation.RELATIVE_TO_SELF, X,
+////                        Animation.RELATIVE_TO_SELF, X,
+////                        Animation.RELATIVE_TO_SELF, Y,
+////                        Animation.RELATIVE_TO_SELF, Y);
+////                ani.setFillAfter(true); // 애니메이션 후 이동한좌표에
+////                ani.setDuration(6000); //지속시간
+////
+////                view.startAnimation(ani);
+//                break;
+//
+        }
+        return true;
+    }
+    private void startTranslate2(View view) {
+        TranslateAnimation ani = new TranslateAnimation(
+                Animation.RELATIVE_TO_SELF, 0,
+                Animation.ABSOLUTE, 0,
+                Animation.RELATIVE_TO_SELF, 0,
+                Animation.ABSOLUTE, 0);
+        ani.setFillAfter(true); // 애니메이션 후 이동한좌표에
+        ani.setDuration(1000); //지속시간
+
+        view.startAnimation(ani);
+
+    }
+    private void startTranslate(View view) {
+        TranslateAnimation ani = new TranslateAnimation(
+                Animation.RELATIVE_TO_SELF, 0,
+                Animation.RELATIVE_TO_PARENT, 1.0f,
+                Animation.RELATIVE_TO_SELF, 0,
+                Animation.RELATIVE_TO_PARENT, 1.0f);
+        ani.setFillAfter(true); // 애니메이션 후 이동한좌표에
+        ani.setDuration(1000); //지속시간
+
+        view.startAnimation(ani);
+
+    }
     @Override
     public void onDetach() {
         super.onDetach();
