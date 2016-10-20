@@ -16,7 +16,7 @@
             android:layout_height="200dp"
             android:src="@drawable/ic_menu_gallery"
             android:background="@color/colorPrimary3"
-            android:id="@+id/imageView3" />
+            android:id="@+id/LocationFragment_imageView_storeImg" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -29,28 +29,12 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true">
 
-                <LinearLayout
-                    android:orientation="horizontal"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                   >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="현선이네"
-                        android:id="@+id/textView13" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="hyunsunine"
-                        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                        android:id="@+id/textView14" />
-
-                </LinearLayout>
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="현선이네"
+                    android:id="@+id/LocationFragment_textView_store_name" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -58,7 +42,7 @@
                     android:layout_marginTop="10dp"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="평일 5시 \n 오후 5:00- 7:00"
-                    android:id="@+id/textView15" />
+                    android:id="@+id/LocationFragment_textView_store_time" />
             </LinearLayout>
         </RelativeLayout>
 
@@ -67,7 +51,7 @@
             android:layout_height="250dp"
             android:src="@drawable/ic_menu_camera"
             android:background="@color/colorAccent"
-            android:id="@+id/imageView4" />
+            android:id="@+id/iLocationFragment_textView_store_map" />
 
     </LinearLayout>
 
@@ -76,6 +60,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:text="GET HERE"
-        android:id="@+id/button6" />
+        android:id="@+id/LocationFragment_button_entered" />
 
 </FrameLayout>

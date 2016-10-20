@@ -1,12 +1,16 @@
 package com.example.secpc.hellostranger.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.secpc.hellostranger.R;
 
@@ -64,8 +68,24 @@ public class LocationFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_location, container, false);
+        Button enteredButton = (Button) view.findViewById(R.id.LocationFragment_button_entered);
+        enteredButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+
+                AllMenuFragment frament = new AllMenuFragment();
+                Bundle bundle = new Bundle();
+                frament.setArguments(bundle);
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.add(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.commit();
+            }
+        });
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_location, container, false);
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
