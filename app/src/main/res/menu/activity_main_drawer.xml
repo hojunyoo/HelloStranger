@@ -2,15 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="Languages">
-        <menu>
-            <item
-                android:id="@+id/layout2"
-                app:actionLayout="@layout/layout"
-                android:title="" />
-        </menu>
-    </item>
-
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
@@ -23,10 +14,20 @@
             android:title="My Food Diary" />
     </group>
 
+    <item android:title="Languages">
+        <menu>
+            <item
+                android:id="@+id/layout2"
+                app:actionLayout="@layout/layout"
+                android:title="" />
+        </menu>
+    </item>
+
     <item android:title="Setting">
         <menu>
             <item
                 android:id="@+id/nav_taboo"
+                app:actionLayout="@layout/taboo"
                 android:title="Taboo" />
         </menu>
     </item>
