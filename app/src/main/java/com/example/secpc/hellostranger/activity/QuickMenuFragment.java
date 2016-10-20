@@ -3,6 +3,8 @@ package com.example.secpc.hellostranger.activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -81,8 +83,34 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
         // Inflate the layout for this fragment
         //fragment를 view로 추가 한 후 layout안의 view들을 fragment의 view를 이용해 접근한다.
         View view = inflater.inflate(R.layout.fragment_quick_menu, container, false);
+
+        FloatingActionButton fabBack = (FloatingActionButton) view.findViewById(R.id. QuickMenuFragment_floatbt_back);
+        fabBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        FloatingActionButton fabSelect = (FloatingActionButton) view.findViewById(R.id. QuickMenuFragment_floatbt_select);
+        fabSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        FloatingActionButton fabKeep = (FloatingActionButton) view.findViewById(R.id. QuickMenuFragment_floatbt_keep);
+        fabKeep.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
         flipview = view.findViewById(R.id.flipview);
         flipview.setOnTouchListener(this);
+
         return view;
     }
     public void prev(View view){
