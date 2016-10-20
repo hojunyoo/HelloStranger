@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +17,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.example.secpc.hellostranger.R;
@@ -29,9 +32,16 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Button kor_lang_btn = (Button) findViewById(R.id.kor_lang);
+        Button chn_lang_btn = (Button) findViewById(R.id.chn_lang);
+        Button jpn_lang_btn = (Button) findViewById(R.id.jpn_lang);
+        Button eng_lang_btn = (Button) findViewById(R.id.eng_lang);
+
+        Switch for_taboo = (Switch) findViewById(R.id.taboo_onoff);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
