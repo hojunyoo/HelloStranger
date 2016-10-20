@@ -80,8 +80,10 @@ public class LocationFragment extends Fragment {
                 frament.setArguments(bundle);
 
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
+
 //                fragmentTransaction.hide();
             }
         });
