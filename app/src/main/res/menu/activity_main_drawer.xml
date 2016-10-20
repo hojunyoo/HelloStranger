@@ -20,7 +20,6 @@
             android:title="Keep" />
         <item
             android:id="@+id/nav_food_diary"
-            android:icon="@drawable/ic_menu_slideshow"
             android:title="My Food Diary" />
     </group>
 
@@ -28,7 +27,6 @@
         <menu>
             <item
                 android:id="@+id/nav_taboo"
-                android:icon="@drawable/ic_menu_share"
                 android:title="Taboo" />
         </menu>
     </item>

@@ -99,12 +99,14 @@ public class MainActivity extends AppCompatActivity
             fragmentClass = HomeFragment.class;
 
         } else if (id == R.id.nav_keep) {
-            fragmentClass = QuickMenuFragment.class;
+            //fragmentClass = QuickMenuFragment.class;
+            fragmentClass = KeepFragment.class;
 
         } else if (id == R.id.nav_food_diary) {
+            fragmentClass = MyFoodDairyFragment.class;
 
         } else if (id == R.id.nav_taboo) {
-
+            // on - off
         }
         try {
             fragment = (Fragment) fragmentClass.newInstance();
