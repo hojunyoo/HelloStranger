@@ -4,25 +4,33 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <ImageView
+    <Button
+        android:id="@+id/kor_lang"
         android:layout_width="@dimen/lang_icon_size"
         android:layout_height="@dimen/lang_icon_size"
         android:layout_marginRight="@dimen/fab_margin"
-        android:src="@drawable/south_korea" />
-    <ImageView
+        style="?android:borderlessButtonStyle"
+        android:background="@drawable/south_korea" />
+    <Button
+        android:id="@+id/chn_lang"
         android:layout_width="@dimen/lang_icon_size"
         android:layout_height="@dimen/lang_icon_size"
         android:layout_marginRight="@dimen/fab_margin"
-        android:src="@drawable/china" />
-    <ImageView
+        style="?android:borderlessButtonStyle"
+        android:background="@drawable/china" />
+    <Button
+        android:id="@+id/jpn_lang"
         android:layout_width="@dimen/lang_icon_size"
         android:layout_height="@dimen/lang_icon_size"
         android:layout_marginRight="@dimen/fab_margin"
-        android:src="@drawable/japan" />
-    <ImageView
+        style="?android:borderlessButtonStyle"
+        android:background="@drawable/japan" />
+    <Button
+        android:id="@+id/eng_lang"
         android:layout_width="@dimen/lang_icon_size"
         android:layout_height="@dimen/lang_icon_size"
         android:layout_marginRight="@dimen/fab_margin"
-        android:src="@drawable/united_kingdom" />
+        style="?android:borderlessButtonStyle"
+        android:background="@drawable/united_kingdom" />
 
 </LinearLayout>
