@@ -1,5 +1,6 @@
 package com.example.secpc.hellostranger.activity;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -106,7 +107,9 @@ public class MainActivity extends AppCompatActivity
             fragmentClass = MyFoodDairyFragment.class;
 
         } else if (id == R.id.nav_taboo) {
-            // on - off
+            Intent goTaboo = new Intent(MainActivity.this, SettingTabooActivity.class);
+            startActivity(goTaboo);
+            return true;
         }
         try {
             fragment = (Fragment) fragmentClass.newInstance();

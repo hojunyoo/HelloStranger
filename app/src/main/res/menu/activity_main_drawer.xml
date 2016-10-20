@@ -27,6 +27,8 @@
         <menu>
             <item
                 android:id="@+id/nav_taboo"
+                android:textColor="@color/colorAccent"
+                android:enabled="true"
                 app:actionLayout="@layout/taboo"
                 android:title="Taboo" />
         </menu>
