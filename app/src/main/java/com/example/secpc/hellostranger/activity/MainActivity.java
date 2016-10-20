@@ -1,5 +1,6 @@
 package com.example.secpc.hellostranger.activity;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -7,7 +8,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.SubMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,6 +22,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -41,8 +47,7 @@ public class MainActivity extends AppCompatActivity
         Button jpn_lang_btn = (Button) findViewById(R.id.jpn_lang);
         Button eng_lang_btn = (Button) findViewById(R.id.eng_lang);
 
-        Switch for_taboo = (Switch) findViewById(R.id.taboo_onoff);
-
+//        Switch for_taboo = (Switch) findViewById(R.id.taboo_onoff);
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -53,6 +58,18 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        ((Switch)((navigationView.getMenu().findItem(R.id.nav_taboo)).getActionView()).findViewById(R.id.taboo_onoff)).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b){
+
+                }
+                else{
+                    Log.d("되냐", "off");
+                }
+            }
+        });
 
     }
 
@@ -111,6 +128,12 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_taboo) {
             Intent goTaboo = new Intent(MainActivity.this, SettingTabooActivity.class);
             startActivity(goTaboo);
+            return true;
+        }
+        else if (id == R.id.nav_taboo) {
+            Intent goTaboo = new Intent(MainActivity.this, SettingTabooActivity.class);
+            startActivity(goTaboo);
+
             return true;
         }
         try {
