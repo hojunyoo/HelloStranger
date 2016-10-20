@@ -4,28 +4,25 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New"
-        android:id="@+id/button" />
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New"
-        android:id="@+id/button2" />
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New"
-        android:id="@+id/button3" />
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New"
-        android:id="@+id/button4" />
+    <ImageView
+        android:layout_width="@dimen/lang_icon_size"
+        android:layout_height="@dimen/lang_icon_size"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:src="@drawable/south_korea" />
+    <ImageView
+        android:layout_width="@dimen/lang_icon_size"
+        android:layout_height="@dimen/lang_icon_size"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:src="@drawable/china" />
+    <ImageView
+        android:layout_width="@dimen/lang_icon_size"
+        android:layout_height="@dimen/lang_icon_size"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:src="@drawable/japan" />
+    <ImageView
+        android:layout_width="@dimen/lang_icon_size"
+        android:layout_height="@dimen/lang_icon_size"
+        android:layout_marginRight="@dimen/fab_margin"
+        android:src="@drawable/united_kingdom" />
+
 </LinearLayout>
