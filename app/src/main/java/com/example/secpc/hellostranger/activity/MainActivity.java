@@ -24,7 +24,7 @@ import android.widget.Toast;
 import com.example.secpc.hellostranger.R;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, HomeFragment.OnFragmentInteractionListener, QuickMenuFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, AllMenuFragment.OnFragmentInteractionListener, LocationFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, QuickMenuFragment.OnFragmentInteractionListener {
     Fragment fragment = null;
     Class fragmentClass = null;
 
@@ -114,8 +114,7 @@ public class MainActivity extends AppCompatActivity
             fragmentClass = KeepFragment.class;
 
         } else if (id == R.id.nav_food_diary) {
-            fragmentClass = MyFoodDairyFragment.class;
-
+            fragmentClass = LocationFragment.class;
         } else if (id == R.id.nav_taboo) {
             Intent goTaboo = new Intent(MainActivity.this, SettingTabooActivity.class);
             startActivity(goTaboo);
