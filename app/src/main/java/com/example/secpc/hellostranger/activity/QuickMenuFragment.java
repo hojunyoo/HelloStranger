@@ -129,7 +129,7 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
                 int v = (int) mVelocityTracker.getXVelocity(); // x 축 이동 속도를 구함
                 int v2 = (int) mVelocityTracker.getYVelocity(); // x 축 이동 속도를 구함
 
-                if(Math.abs(v) > 300 || Math.abs(v2) >300){
+                if(Math.abs(v) > 200 || Math.abs(v2) >200){
                     if(Math.abs(v)-Math.abs(v2)>0){
                         startTranslate(view, v, v2);
                     }
