@@ -82,6 +82,7 @@ public class LocationFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.add(R.id.flContent, frament); // Activity 레이아웃의 View ID
                 fragmentTransaction.commit();
+//                fragmentTransaction.hide();
             }
         });
         // Inflate the layout for this fragment
