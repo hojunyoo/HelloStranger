@@ -12,4 +12,6 @@
     <string name="title_activity_splash">SplashActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="dumy_store_time">Time 17:00 - 19:00</string>
+    <string name="dumy_store_contact_number">Contact 02 - 347 - 2837</string>
 </resources>
