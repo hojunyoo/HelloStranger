@@ -1,4 +1,4 @@
-package com.example.secpc.hellostranger.controller;
+package com.example.secpc.hellostranger.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;

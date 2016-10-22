@@ -135,11 +135,7 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
         }
     }
     public boolean onTouch(View view, MotionEvent event) {
-//        final int X = (int) event.getRawX();
-//        final int Y = (int) event.getRawY();
-//        if (mVelocityTracker == null) {
-//            mVelocityTracker = VelocityTracker.obtain();
-//        }
+
         mVelocityTracker = VelocityTracker.obtain();
         mVelocityTracker.addMovement(event);
         switch (event.getAction()) {
@@ -190,6 +186,10 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
 //            case MotionEvent.ACTION_MOVE:
 //                Log.i("ac ", "ACTION_MOVE");
 //
+        }
+        if (mVelocityTracker != null) {
+            mVelocityTracker.recycle();
+            mVelocityTracker = null;
         }
         return true;
     }
