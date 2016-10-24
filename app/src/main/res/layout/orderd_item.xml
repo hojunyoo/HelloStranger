@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/card_view_size"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        card_view:cardCornerRadius="@dimen/card_view_padding"
+        android:layout_marginBottom="@dimen/menu_qaunti_padding"
+        card_view:theme="@style/Base.CardView"
+        android:id="@+id/oder_cv" >
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="fill_horizontal">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:text="@string/dumy_menu_quantity"
+                        android:id="@+id/menu_qauntity"
+                        android:layout_marginLeft="@dimen/menu_qaunti_padding"
+                        android:textSize="@dimen/lang_icon_size"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_marginLeft="@dimen/lang_icon_size"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="@dimen/card_view_size"
+                            android:layout_height="@dimen/card_view_size"
+                            android:id="@+id/menu_picture"
+                            android:background="@drawable/dumy_tteokbokki" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/dumy_menu_name"
+                            android:id="@+id/menu_name"
+                            android:layout_marginLeft="@dimen/card_view_padding"
+                            android:layout_marginTop="@dimen/card_view_padding"
+                            android:textSize="@dimen/activity_horizontal_margin"
+                            android:layout_gravity="top" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?android:attr/textAppearanceMedium"
+                            android:text="@string/dumy_menu_price"
+                            android:id="@+id/menu_price"
+                            android:layout_marginBottom="@dimen/card_view_padding"
+                            android:layout_gravity="bottom|right"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
