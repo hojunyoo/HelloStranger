@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.secpc.hellostranger.R;
-import com.example.secpc.hellostranger.data.Order;
 
 public class OrderSheetActivity extends AppCompatActivity {
 
