@@ -16,14 +16,12 @@
     <string name="dumy_store_time">Time 17:00 - 19:00</string>
     <string name="dumy_store_contact_number">Contact 02 - 347 - 2837</string>
 
-    <string name="dumy_menu_name">매장이름</string>
-    <string name="dumy_menu_quantity">1</string>
-    <string name="dumy_menu_price">3,000</string>
-
     <string name="oder_sheet_kor_title">주문서입니다</string>
     <string name="oder_sheet_eng_title">(Show this screen to the employee)</string>
     <string name="oder_sheet_show_this_and_say">\"Yogi Jumunyiyo!\"</string>
     <string name="order_modify">수정하기</string>
     <string name="order_submit">주문완료</string>
+    
+    <string name="for_having_equal_width">1</string>
 
 </resources>

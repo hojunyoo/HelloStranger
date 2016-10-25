@@ -9,30 +9,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.secpc.hellostranger.activity.OrderSheetActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/order_submit"
-        android:id="@+id/order_submit_button"
-        android:background="@color/colorAccent"
-        android:textColor="@color/white"
-        android:layout_gravity="end"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout" />
-
-    <Button
-        android:text="@string/order_modify"
-        android:id="@+id/order_modifiy_button"
-        android:background="@color/TestGreen"
-        android:textColor="@color/white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/order_submit_button" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -40,8 +16,7 @@
         android:id="@+id/linearLayout"
         android:weightSum="1"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/order_submit_button">
+        android:layout_alignParentEnd="true">
 
         <TextView
             android:layout_width="match_parent"
@@ -75,19 +50,48 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/scrollView"
-            android:layout_weight="0.67">
-
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView" >
 
             <android.support.v7.widget.RecyclerView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:id="@+id/order_rv" >
 
             </android.support.v7.widget.RecyclerView>
 
         </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/linearLayout">
+
+
+        <Button
+            android:text="@string/order_modify"
+            android:id="@+id/order_modifiy_button"
+            android:background="@color/TestGreen"
+            android:textColor="@color/white"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_weight="@string/for_having_equal_width"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+
+        <Button
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:text="@string/order_submit"
+            android:id="@+id/order_submit_button"
+            android:background="@color/colorAccent"
+            android:textColor="@color/white"
+            android:layout_weight="@string/for_having_equal_width"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/order_modifiy_button" />
+
+
 
     </LinearLayout>
 
