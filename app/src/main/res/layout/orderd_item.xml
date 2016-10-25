@@ -2,15 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
-    android:layout_height="@dimen/card_view_size"
+    android:layout_height="fill_parent"
     android:orientation="vertical">
 
     <android.support.v7.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/card_view_size"
         android:layout_gravity="center"
-        card_view:cardCornerRadius="@dimen/card_view_padding"
+        card_view:cardCornerRadius="@dimen/menu_qaunti_padding"
         android:layout_marginBottom="@dimen/menu_qaunti_padding"
         card_view:theme="@style/Base.CardView"
         android:id="@+id/oder_cv" >
@@ -35,7 +35,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:text="@string/dumy_menu_quantity"
                         android:id="@+id/menu_qauntity"
                         android:layout_marginLeft="@dimen/menu_qaunti_padding"
                         android:textSize="@dimen/lang_icon_size"
@@ -52,19 +51,20 @@
                         android:orientation="horizontal"
                         android:layout_width="fill_parent"
                         android:layout_marginLeft="@dimen/lang_icon_size"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:weightSum="1">
 
                         <ImageView
-                            android:layout_width="@dimen/card_view_size"
-                            android:layout_height="@dimen/card_view_size"
-                            android:id="@+id/menu_picture"
-                            android:background="@drawable/dumy_tteokbokki" />
+                            android:layout_width="@dimen/menu_image_size"
+                            android:minWidth="@dimen/menu_image_size"
+                            android:layout_height="fill_parent"
+                            android:scaleType="fitXY"
+                            android:id="@+id/menu_picture" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="@string/dumy_menu_name"
                             android:id="@+id/menu_name"
                             android:layout_marginLeft="@dimen/card_view_padding"
                             android:layout_marginTop="@dimen/card_view_padding"
@@ -72,13 +72,16 @@
                             android:layout_gravity="top" />
 
                         <TextView
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?android:attr/textAppearanceMedium"
-                            android:text="@string/dumy_menu_price"
                             android:id="@+id/menu_price"
                             android:layout_marginBottom="@dimen/card_view_padding"
-                            android:layout_gravity="bottom|right"/>
+                            android:textSize="@dimen/menu_qaunti_padding"
+                            android:gravity="end"
+                            android:layout_gravity="bottom"
+                            android:textStyle="italic"
+                            android:textAlignment="textEnd" />
+
                     </LinearLayout>
 
                 </LinearLayout>
