@@ -30,7 +30,8 @@ import com.example.secpc.hellostranger.R;
  * Use the {@link QuickMenuFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class QuickMenuFragment extends Fragment implements View.OnTouchListener {
+//
+public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -42,7 +43,7 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
 
     private OnFragmentInteractionListener mListener;
 
-    private View flipview;
+    private View flipview, flipview2, flipview3;
     private VelocityTracker mVelocityTracker = null;
 
     float xCoOrdinate;
@@ -86,42 +87,13 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
         //fragment를 view로 추가 한 후 layout안의 view들을 fragment의 view를 이용해 접근한다.
         View view = inflater.inflate(R.layout.fragment_quick_menu, container, false);
 
-        FloatingActionButton fabBack = (FloatingActionButton) view.findViewById(R.id. QuickMenuFragment_floatbt_back);
-        fabBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        FloatingActionButton fabSelect = (FloatingActionButton) view.findViewById(R.id. QuickMenuFragment_floatbt_select);
-        fabSelect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //LocatinoFragement로 넘어감. 지도 페이지 보여줌
-                FragmentManager fragmentManager = getFragmentManager();
 
-                LocationFragment frament = new LocationFragment();
-                Bundle bundle = new Bundle();
-                frament.setArguments(bundle);
-
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-
-            }
-        });
-        FloatingActionButton fabKeep = (FloatingActionButton) view.findViewById(R.id. QuickMenuFragment_floatbt_keep);
-        fabKeep.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
         flipview = view.findViewById(R.id.flipview);
+        flipview2 = view.findViewById(R.id.flipview2);
+        flipview3 = view.findViewById(R.id.flipview3);
         flipview.setOnTouchListener(this);
+        flipview2.setOnTouchListener(this);
+        flipview3.setOnTouchListener(this);
 
         return view;
     }
@@ -168,6 +140,9 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
                 if(Math.abs(v) > 200 || Math.abs(v2) >200){
                     if(Math.abs(v)-Math.abs(v2)>0){
                         startTranslate(view, v, v2);
+                    }
+                    else{
+                    //    startTranslate(view, v, v2);
                     }
 
                 }
@@ -227,16 +202,16 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
             }
             else{
                 delX = -1.0f;
-                delY = 0.5f;
+                delY = 1.0f;
             }
         }
         else{
             if(v2>0){
-                delX = 0.5f;
+                delX = 1.0f;
                 delY = -1.0f;
             }
             else{
-                delX = 0.5f;
+                delX = 1.0f;
                 delY = 1.0f;
             }
         }
@@ -246,9 +221,10 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
                 Animation.RELATIVE_TO_SELF, 0,
                 Animation.RELATIVE_TO_PARENT, delY);
         ani.setFillAfter(true); // 애니메이션 후 이동한좌표에
-        ani.setDuration(300); //지속시간
+        ani.setDuration(100); //지속시간
 
         view.startAnimation(ani);
+        view.setVisibility(View.GONE);
 
     }
     @Override
