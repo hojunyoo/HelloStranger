@@ -70,6 +70,9 @@ public class LocationFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_location, container, false);
         Button enteredButton = (Button) view.findViewById(R.id.LocationFragment_button_entered);
+        ((MainActivity)getActivity()).floating_back.setVisibility(View.GONE);
+        ((MainActivity)getActivity()).floating_select.setVisibility(View.GONE);
+        ((MainActivity)getActivity()).floating_keep.setVisibility(View.GONE);
         enteredButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

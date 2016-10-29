@@ -3,8 +3,10 @@ package com.example.secpc.hellostranger.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -25,14 +27,16 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, AllMenuFragment.OnFragmentInteractionListener, LocationFragment.OnFragmentInteractionListener, HomeFragment.OnFragmentInteractionListener, QuickMenuFragment.OnFragmentInteractionListener {
     Fragment fragment = null;
     Class fragmentClass = null;
-
+    public FloatingActionButton floating_back;
+    public FloatingActionButton floating_select;
+    public FloatingActionButton floating_keep;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //시작화면 home fragment로 설정하는 함수
-        InitFrag();
+        InitFrag(1);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -45,6 +49,20 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        floating_back = (FloatingActionButton)findViewById(R.id.QuickMenuFragment_floatbt_back);
+        floating_select = (FloatingActionButton)findViewById(R.id.QuickMenuFragment_floatbt_select);
+        floating_keep = (FloatingActionButton)findViewById(R.id.QuickMenuFragment_floatbt_keep);
+        floating_back.setVisibility(View.GONE);
+        floating_select.setVisibility(View.GONE);
+        floating_keep.setVisibility(View.GONE);
+        floating_select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InitFrag(0);
+            }
+        });
+
 
         //menu안의 switch view 연결할 때 버튼의 경우 setOnClickListener로 바꿔주면 된다. 생성한 listener안에 버튼 이벤트 구현해주기
         ((Switch)((navigationView.getMenu().findItem(R.id.nav_taboo)).getActionView()).findViewById(R.id.taboo_onoff))
@@ -94,10 +112,19 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    private void InitFrag() {
+    public static void FloatingButtion(){
+
+    }
+
+    private void InitFrag(int flag) {
         FragmentManager initFrag = getSupportFragmentManager();
         try {
-            fragment = (Fragment)(HomeFragment.class.newInstance());
+            if(flag==1){
+                fragment = (Fragment)(HomeFragment.class.newInstance());
+            }
+            else{
+                fragment = (Fragment)(LocationFragment.class.newInstance());
+            }
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
@@ -133,15 +160,24 @@ public class MainActivity extends AppCompatActivity
         //id별 fragment를 연결
         switch (id) {
             case R.id.nav_home:
+                floating_back.setVisibility(View.GONE);
+                floating_select.setVisibility(View.GONE);
+                floating_keep.setVisibility(View.GONE);
                 fragmentClass = HomeFragment.class;
                 break;
             case R.id.nav_food_diary:
+                floating_back.setVisibility(View.GONE);
+                floating_select.setVisibility(View.GONE);
+                floating_keep.setVisibility(View.GONE);
                 fragmentClass = LocationFragment.class;
                 break;
             case R.id.nav_keep:
                // fragmentClass = BlankFragment.class;
                 break;
             case R.id.nav_taboo:
+                floating_back.setVisibility(View.GONE);
+                floating_select.setVisibility(View.GONE);
+                floating_keep.setVisibility(View.GONE);
                 Intent goTaboo = new Intent(MainActivity.this, SettingTabooActivity.class);
                 startActivity(goTaboo);
                 return true;

@@ -20,11 +20,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
-                <Button
+
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/menu_select_item1"
                     android:textColor="@color/white"
+                    android:scaleType="fitXY"
                     android:background="@drawable/menu_bossam_image"
                     android:layout_weight="1"/>
 
@@ -35,6 +37,9 @@
                     android:textColor="@color/white"
                     android:background="@drawable/menu_bulgogi_image"
                     android:layout_weight="1"/>
+
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -74,11 +79,12 @@
                     android:id="@+id/menu_select_item5"
                     android:layout_weight="1"/>
 
-                <Button
+                <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:id="@+id/menu_select_item6"
                     android:textColor="@color/white"
+                    android:scaleType="fitXY"
                     android:background="@drawable/menu_dakdori_image"
                     android:layout_weight="1"/>
             </LinearLayout>
@@ -88,7 +94,7 @@
 
     <Button
         android:text="@string/order_ready"
-        android:id="@+id/order_modifiy_button"
+        android:id="@+id/order_ready_button"
         android:background="@color/TestGreen"
         android:textColor="@color/white"
         android:layout_height="wrap_content"

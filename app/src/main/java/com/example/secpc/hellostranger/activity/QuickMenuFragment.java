@@ -86,7 +86,24 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
         // Inflate the layout for this fragment
         //fragment를 view로 추가 한 후 layout안의 view들을 fragment의 view를 이용해 접근한다.
         View view = inflater.inflate(R.layout.fragment_quick_menu, container, false);
+        ((MainActivity)getActivity()).floating_back.setVisibility(View.VISIBLE);
+        ((MainActivity)getActivity()).floating_select.setVisibility(View.VISIBLE);
+        ((MainActivity)getActivity()).floating_select.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
 
+                LocationFragment frament = new LocationFragment();
+                Bundle bundle = new Bundle();
+                frament.setArguments(bundle);
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        ((MainActivity)getActivity()).floating_keep.setVisibility(View.VISIBLE);
 
         flipview = view.findViewById(R.id.flipview);
         flipview2 = view.findViewById(R.id.flipview2);
@@ -137,7 +154,7 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
                 int v = (int) mVelocityTracker.getXVelocity(); // x 축 이동 속도를 구함
                 int v2 = (int) mVelocityTracker.getYVelocity(); // x 축 이동 속도를 구함
 
-                if(Math.abs(v) > 200 || Math.abs(v2) >200){
+                if(Math.abs(v) > 100 || Math.abs(v2) >100){
                     if(Math.abs(v)-Math.abs(v2)>0){
                         startTranslate(view, v, v2);
                     }
@@ -198,7 +215,7 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
         if(Math.abs(v)-Math.abs(v2)>0){
             if(v>0){
                 delX = 1.0f;
-                delY = 0.5f;
+                delY = 1.0f;
             }
             else{
                 delX = -1.0f;

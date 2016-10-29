@@ -1,12 +1,18 @@
 package com.example.secpc.hellostranger.activity;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.example.secpc.hellostranger.R;
 
@@ -65,7 +71,32 @@ public class AllMenuFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_menu, container, false);
+        View view = inflater.inflate(R.layout.fragment_all_menu, container, false);
+        final ImageButton select_button = (ImageButton) view.findViewById(R.id.menu_select_item1);
+        select_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                select_button.setBackgroundResource(R.drawable.menu_pickme_image);
+            }
+        });
+        final ImageButton select_button2 = (ImageButton) view.findViewById(R.id.menu_select_item6);
+        select_button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                select_button2.setBackgroundResource(R.drawable.menu_pickme_image);
+            }
+        });
+        Button order_button = (Button) view.findViewById(R.id.order_ready_button);
+        order_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getActivity(), OrderSheetActivity.class);
+                startActivity(intent1);
+                getActivity().finish();
+                getActivity().overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+            }
+        });
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
