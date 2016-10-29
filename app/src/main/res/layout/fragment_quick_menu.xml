@@ -7,7 +7,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_menu_gallery"
         android:background="@drawable/quick_sullungtang_menu"
         android:visibility="visible"
         android:id="@+id/flipview3" />
@@ -15,7 +14,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_menu_gallery"
         android:background="@drawable/quick_ganjang_menu"
         android:visibility="visible"
         android:id="@+id/flipview2" />
