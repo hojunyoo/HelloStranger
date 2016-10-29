@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">HelloStranger</string>
+    <string name="app_home">HOME</string>
+    <string name="app_quick">QUICK MENU</string>
+    <string name="app_all_menu">MENU PAN</string>
+    <string name="app_store_loaction">현선이네</string>
+    <string name="app_order_sheet">ORDER SHEET</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
