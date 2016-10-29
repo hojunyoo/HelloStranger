@@ -9,4 +9,90 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.secpc.hellostranger.activity.OrderSheetActivity">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout"
+        android:weightSum="1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/fab_margin"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/oder_sheet_kor_title"
+            android:textStyle="bold"
+            android:id="@+id/textView13"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/oder_sheet_eng_title"
+            android:id="@+id/textView14"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:text="@string/oder_sheet_show_this_and_say"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/lang_icon_size"
+            android:textStyle="italic"
+            android:id="@+id/textView15"
+            android:layout_gravity="center_horizontal" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView" >
+
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/order_rv" >
+
+            </android.support.v7.widget.RecyclerView>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/linearLayout">
+
+
+        <Button
+            android:text="@string/order_modify"
+            android:id="@+id/order_modifiy_button"
+            android:background="@color/TestGreen"
+            android:textColor="@color/white"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_weight="@string/for_having_equal_width"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true" />
+
+        <Button
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:text="@string/order_submit"
+            android:id="@+id/order_submit_button"
+            android:background="@color/colorAccent"
+            android:textColor="@color/white"
+            android:layout_weight="@string/for_having_equal_width"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/order_modifiy_button" />
+
+
+
+    </LinearLayout>
+
 </RelativeLayout>

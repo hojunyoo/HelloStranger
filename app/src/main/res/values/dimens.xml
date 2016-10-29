@@ -7,4 +7,10 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="lang_icon_size">45dp</dimen>
     <dimen name="fab_margin">23dp</dimen>
+    <dimen name="menu_size">60dp</dimen>
+    <dimen name="card_view_size">100dp</dimen>
+    <dimen name="menu_image_size">100dp</dimen>
+    <dimen name="card_view_padding">5dp</dimen>
+    <dimen name="menu_qaunti_padding">10dp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
 </resources>
