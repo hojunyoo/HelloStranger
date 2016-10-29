@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity
                 fragmentClass = LocationFragment.class;
                 break;
             case R.id.nav_keep:
-                fragmentClass = KeepFragment.class;
+               // fragmentClass = BlankFragment.class;
                 break;
             case R.id.nav_taboo:
                 Intent goTaboo = new Intent(MainActivity.this, SettingTabooActivity.class);
