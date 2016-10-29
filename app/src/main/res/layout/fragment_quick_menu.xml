@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activity.QuickMenuFragment">
     <ImageView
         android:layout_width="match_parent"
@@ -23,7 +24,6 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_menu_gallery"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/quick_thekkini_menu"
         android:id="@+id/flipview" />
 </FrameLayout>
