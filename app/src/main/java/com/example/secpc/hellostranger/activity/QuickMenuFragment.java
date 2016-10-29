@@ -86,6 +86,7 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
         // Inflate the layout for this fragment
         //fragment를 view로 추가 한 후 layout안의 view들을 fragment의 view를 이용해 접근한다.
         View view = inflater.inflate(R.layout.fragment_quick_menu, container, false);
+        ((MainActivity)getActivity()).toolbar.setTitle(R.string.app_quick);
         ((MainActivity)getActivity()).floating_back.setVisibility(View.VISIBLE);
         ((MainActivity)getActivity()).floating_select.setVisibility(View.VISIBLE);
         ((MainActivity)getActivity()).floating_select.setOnClickListener(new View.OnClickListener() {

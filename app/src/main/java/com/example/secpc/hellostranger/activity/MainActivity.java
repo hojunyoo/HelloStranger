@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
     public FloatingActionButton floating_back;
     public FloatingActionButton floating_select;
     public FloatingActionButton floating_keep;
+    public Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity
         //시작화면 home fragment로 설정하는 함수
         InitFrag(1);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

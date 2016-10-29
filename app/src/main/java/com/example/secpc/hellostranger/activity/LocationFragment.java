@@ -69,6 +69,7 @@ public class LocationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_location, container, false);
+        ((MainActivity)getActivity()).toolbar.setTitle(R.string.app_store_loaction);
         Button enteredButton = (Button) view.findViewById(R.id.LocationFragment_button_entered);
         ((MainActivity)getActivity()).floating_back.setVisibility(View.GONE);
         ((MainActivity)getActivity()).floating_select.setVisibility(View.GONE);

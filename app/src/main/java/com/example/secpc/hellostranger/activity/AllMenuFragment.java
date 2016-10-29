@@ -72,6 +72,7 @@ public class AllMenuFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_all_menu, container, false);
+        ((MainActivity)getActivity()).toolbar.setTitle(R.string.app_all_menu);
         final ImageButton select_button = (ImageButton) view.findViewById(R.id.menu_select_item1);
         select_button.setOnClickListener(new View.OnClickListener() {
             @Override
