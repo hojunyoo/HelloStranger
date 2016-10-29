@@ -25,8 +25,8 @@ public class OrderSheetActivity extends AppCompatActivity {
 
         List<Dumy_Order> orders = new ArrayList<>();
         Dumy_Order[] order = new Dumy_Order[ORDER_SIZE];
-        order[0] = new Dumy_Order(R.drawable.dumy_tteokbokki, "떡볶이(Tteokbokki)", "1", "₩ 3,000  ");
-        order[1] = new Dumy_Order(R.drawable.dumy_sundae, "순대(Sundae)", "1", "₩ 4,000  ");
+        order[0] = new Dumy_Order(R.drawable.order_bulgogi_image, "불고기(Bulgogi)", "1", "₩ 10,800  ");
+        order[1] = new Dumy_Order(R.drawable.order_kimchijji_image, "김치찌개(Kimchijji)", "1", "₩ 7,000  ");
 
         for(int i = 0; i < ORDER_SIZE; i++) {
             orders.add(order[i]);
