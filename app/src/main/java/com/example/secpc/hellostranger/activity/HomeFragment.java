@@ -73,9 +73,10 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         Button[] buttons = new Button[6];
 
-
-            buttons[0] = (Button) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
-            buttons[0].setOnClickListener(new View.OnClickListener() {
+        for(int i=0;i<6;i++){
+            //후에 배열별로 id연결 및 이벤트 구현해야함
+            buttons[i] = (Button) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
+            buttons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.d("들어왔니", "ㅇ");
@@ -91,6 +92,8 @@ public class HomeFragment extends Fragment {
                     fragmentTransaction.commit();
                 }
             });
+        }
+
 
 
         return view;

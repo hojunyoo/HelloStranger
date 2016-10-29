@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.example.secpc.hellostranger.R;
 
@@ -30,17 +28,19 @@ public class SplashActivity extends AppCompatActivity {
         ImageView splashView = (ImageView) findViewById(R.id.fullscreen_content_controls);
         GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(splashView);
         if(splashView != null)
-            Glide.with(this).load(R.drawable.splash_hello_stranger).crossFade().into(imageViewTarget);
+            Glide.with(this).load(R.drawable.splash_hello_stranger0).crossFade().into(imageViewTarget);
 
         int secondsDelayed = 1;
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                startActivity(new Intent(SplashActivity.this, LogInActivity.class));
-                finish();
-                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+//                startActivity(new Intent(SplashActivity.this, LogInActivity.class));
+//                finish();
+//                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
                 Intent goMain = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(goMain);
+                finish();
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
 
             }
         }, secondsDelayed * 1500);

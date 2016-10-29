@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -96,8 +98,18 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener 
         fabSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //LocatinoFragement로 넘어감. 지도 페이지 보여줌
+                FragmentManager fragmentManager = getFragmentManager();
+
+                LocationFragment frament = new LocationFragment();
+                Bundle bundle = new Bundle();
+                frament.setArguments(bundle);
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
             }
         });
         FloatingActionButton fabKeep = (FloatingActionButton) view.findViewById(R.id. QuickMenuFragment_floatbt_keep);
