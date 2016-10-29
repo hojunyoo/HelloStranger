@@ -23,7 +23,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_categoryl"
                 android:text="Traditional"
-                android:background="@color/colorPrimary"
+                android:textColor="@color/white"
+                android:background="@drawable/home_tradi"
                 android:layout_weight="1"/>
 
             <Button
@@ -31,7 +32,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_category2"
                 android:text="Rice"
-                android:background="@color/colorPrimary2"
+                android:textColor="@color/white"
+                android:background="@drawable/home_rice"
                 android:layout_weight="1"/>
         </LinearLayout>
 
@@ -47,7 +49,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_category3"
                 android:text="Noodle"
-                android:background="@color/colorPrimary6"
+                android:textColor="@color/white"
+                android:background="@drawable/home_noodle"
                 android:layout_weight="1"/>
 
             <Button
@@ -55,7 +58,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_category4"
                 android:text="BBQ"
-                android:background="@color/colorPrimary5"
+                android:textColor="@color/white"
+                android:background="@drawable/home_bbq"
                 android:layout_weight="1"/>
         </LinearLayout>
 
@@ -68,7 +72,8 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@color/colorPrimary4"
+                android:textColor="@color/white"
+                android:background="@drawable/home_snack"
                 android:id="@+id/HomeFragmnet_imageButton_category5"
                 android:text="Snack"
                 android:layout_weight="1"/>
@@ -78,7 +83,8 @@
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_category6"
                 android:text="FastFood"
-                android:background="@color/colorPrimary3"
+                android:textColor="@color/white"
+                android:background="@drawable/home_fastfood"
                 android:layout_weight="1"/>
         </LinearLayout>
     </LinearLayout>
