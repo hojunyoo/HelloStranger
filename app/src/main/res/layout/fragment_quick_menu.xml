@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/ic_menu_gallery"
-        android:background="@color/colorPrimary2"
+        android:background="@drawable/quick_sullungtang_menu"
         android:visibility="visible"
         android:id="@+id/flipview3" />
 
@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/ic_menu_gallery"
-        android:background="@color/colorPrimary3"
+        android:background="@drawable/quick_ganjang_menu"
         android:visibility="visible"
         android:id="@+id/flipview2" />
 
