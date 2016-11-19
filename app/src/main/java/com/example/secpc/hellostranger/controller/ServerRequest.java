@@ -10,7 +10,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.secpc.hellostranger.data.User;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -20,37 +22,87 @@ import org.json.JSONObject;
 
 public class ServerRequest extends Application{
 
-    public static void sendRequest(Context context){
+    //기본 url 주소
+    public static String SeverUrl ="https://hello-stranger-dobeeisfree.c9users.io/v1";
+
+    public static int parseUser=1;
+    public static int parseOrder=2;
+    public static int parseMenu=3;
+    public static int parseReview=4;
+    public static int parseStore=5;
+    private Object returnObject = null;
+
+    public Object sendRequest(Context context, String url, int a){
         RequestQueue queue = Volley.newRequestQueue(context);
-        String url ="https://hello-stranger-dobeeisfree.c9users.io/v1/users/new?foreigners[name]=sejin";
+        final int type = a;
 
         /*
         onResponse 함수의 인자값인 response에 저장된다.
 
-    저장된 데이터를 파싱하는 일만 남는데, 파싱은 getString, getInt,등등의 함수들을 호출해 파싱하면된다. 아래와 같이.
-
-    String id = response.getString("name");
-
-    String recordDate = response.getString("email");
-
-    JSONObject distance = response.getJSONObject("phone");
-
-    이제 파싱 된 데이터들을 그냥 사용하거나 해당 데이터들을 묶어주는 객체로 생성해 사용하면 된다.
-
+    파싱은 getString, getInt,등의 함수로 가능.
+    ex)  String id = response.getString("jsondata");
+        JSONObject id = response.getJSONObject("jsonobject");
         * */
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        try {
-                            String id = response.getString("id");
-                            Log.e("id : ", id);
-                            String name = response.getString("name");
-                            Log.e("name : ", name);
-                            JSONObject distance = response.getJSONObject("phone");
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+                        if(type == parseUser) {
+                            try {
+                                //정보를 담을 곳에 담아 보내준다.
+                                String userId = response.getString("id");
+                                Log.e("id : ", userId);
+                                String name = response.getString("name");
+                                Log.e("name : ", name);
+                                String password = response.getString("password");
+                                Log.e("pass : ", password);
+                                String language = response.getString("lang");
+                                Log.e("lang : ", String.valueOf(language));
+
+                                String stTaboo = response.getString("for_taboo");
+                                int taboo = 0;
+                                try
+                                {
+                                    if(stTaboo != null)
+                                        taboo = Integer.parseInt(stTaboo);
+                                }
+                                catch (NumberFormatException e)
+                                {
+                                    taboo = -1;
+                                }
+
+                                Log.e("taboo : ", String.valueOf(taboo));
+                                User user = new User(userId, name, password, Integer.parseInt(language), null, taboo);
+                                returnObject = user;
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
                         }
+                        //order parsing
+                        else if(type == parseOrder){
+
+                        }
+                        //menu parsing
+                        else if(type == parseMenu){
+
+                        }
+                        //review parsing
+                        else if(type == parseReview){
+
+                        }
+                        //store parsing
+                        else if(type == parseStore){
+
+                        }
+                        else{
+
+                        }
+
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -60,6 +112,7 @@ public class ServerRequest extends Application{
         });
         // queue에 Request를 추가해준다.
         queue.add(jsonObjectRequest);
+        return returnObject;
     }
 
 
