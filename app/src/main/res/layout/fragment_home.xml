@@ -23,7 +23,6 @@
                 android:id="@+id/HomeFragmnet_imageButton_categoryl"
                 android:src="@drawable/home_tradi"
                 android:scaleType="fitXY"
-                android:background=""
                 android:layout_weight="1"/>
 
             <ImageView

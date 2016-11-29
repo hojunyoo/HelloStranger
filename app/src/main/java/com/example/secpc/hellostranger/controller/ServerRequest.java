@@ -25,34 +25,21 @@ public class ServerRequest extends Application{
     //기본 url 주소
     public static String SeverUrl ="https://hello-stranger-dobeeisfree.c9users.io/v1";
 
-    public static int parseUser=1;
-    public static int parseOrder=2;
-    public static int parseMenu=3;
-    public static int parseReview=4;
-    public static int parseStore=5;
-    private Object returnObject = null;
 
-    public Object sendRequest(Context context, String url, int a){
+    public static Object sendUserRequest(Context context, String url, int a){
         RequestQueue queue = Volley.newRequestQueue(context);
+        final User user = null;
         final int type = a;
 
-        /*
-        onResponse 함수의 인자값인 response에 저장된다.
-
-    파싱은 getString, getInt,등의 함수로 가능.
-    ex)  String id = response.getString("jsondata");
-        JSONObject id = response.getJSONObject("jsonobject");
-        * */
-
+        JsonObjectRequest jsonObjectRequest2;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        if(type == parseUser) {
+
                             try {
                                 //정보를 담을 곳에 담아 보내준다.
-                                String userId = response.getString("id");
-                                Log.e("id : ", userId);
+                               user.setUserId(response.getString("id"));
                                 String name = response.getString("name");
                                 Log.e("name : ", name);
                                 String password = response.getString("password");
@@ -73,8 +60,6 @@ public class ServerRequest extends Application{
                                 }
 
                                 Log.e("taboo : ", String.valueOf(taboo));
-                                User user = new User(userId, name, password, Integer.parseInt(language), null, taboo);
-                                returnObject = user;
 
 
                             } catch (JSONException e) {
@@ -82,38 +67,23 @@ public class ServerRequest extends Application{
                             }
 
                         }
-                        //order parsing
-                        else if(type == parseOrder){
-
-                        }
-                        //menu parsing
-                        else if(type == parseMenu){
-
-                        }
-                        //review parsing
-                        else if(type == parseReview){
-
-                        }
-                        //store parsing
-                        else if(type == parseStore){
-
-                        }
-                        else{
-
-                        }
 
 
-                    }
+
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
             }
         });
+
+
         // queue에 Request를 추가해준다.
         queue.add(jsonObjectRequest);
-        return returnObject;
+        return null;
     }
 
 
-}
+
+    }
+

@@ -11,6 +11,7 @@ public class User {
     private Store[] keep;
     private int taboo;
 
+    public User(){}
     public String getUserId() {
         return userId;
     }
