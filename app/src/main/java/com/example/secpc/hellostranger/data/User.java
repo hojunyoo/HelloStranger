@@ -11,7 +11,15 @@ public class User {
     private Store[] keep;
     private int taboo;
 
-    public User(){}
+    public static int TABOO_NOME=0;
+    public static int TABOO_MUSLIM=1;
+    public static int TABOO_HINDUISM=2;
+    public static int TABOO_POLLO=3;
+    public static int TABOO_OVO=4;
+    public static int TABOO_LACTO=5;
+    public static int TABOO_HACTO=6;
+    public static int TABOO_LACTOVO=7;
+
     public String getUserId() {
         return userId;
     }
