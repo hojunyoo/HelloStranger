@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <TextView
@@ -9,87 +10,106 @@
         android:layout_height="60dp"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:background="#e7e7e7"
-        android:text="Double click to edit Double click to edit"
+        android:background="@drawable/border"
+        android:text="Double click to edit"
         android:id="@+id/textView8" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView9"
-        android:layout_gravity="center_horizontal" />
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton7" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton8" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton9" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton10" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton11" />
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/textView10"
-        android:layout_gravity="center_horizontal" />
-
-    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/textView11"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="34dp" />
+        android:gravity="center_vertical|center|center_horizontal"
+        android:layout_weight="1" >
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton12" />
+            android:background="@drawable/pollo"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:id="@+id/imgBtnPollo" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton13" />
-    </RelativeLayout>
+            android:background="@drawable/pesco"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:id="@+id/imgBtnPesco" />
+    </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView12" />
+        android:layout_width="match_parent"
+        android:gravity="center_vertical|center|center_horizontal"
+        android:layout_weight="1" >
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lacto"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:id="@+id/imgBtnLacto" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ovo"
+            android:layout_margin="@dimen/fab_margin"
+            android:id="@+id/imgBtnOvo" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/lactovo"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:id="@+id/imgBtnLactovo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical|center|center_horizontal"
+        android:layout_weight="1">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hinduism"
+            android:layout_marginRight="@dimen/fab_margin"
+            android:id="@+id/imgBtnHinduism" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/muslim"
+            android:layout_marginLeft="@dimen/fab_margin"
+            android:id="@+id/imgBtnMuslim" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.3" >
+
+        <ImageButton
+            android:layout_width="@dimen/zero_dp"
+            android:layout_weight="@string/for_having_equal_width"
+            android:layout_height="match_parent"
+            android:background="@drawable/taboo_skip_icon"
+            android:id="@+id/imgBtnSkip"
+            android:layout_alignParentBottom="true" />
+
+        <ImageButton
+            android:layout_width="@dimen/zero_dp"
+            android:layout_weight="@string/for_having_equal_width"
+            android:layout_height="match_parent"
+            android:background="@drawable/taboo_select_icon"
+            android:id="@+id/imgBtnSelect"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/imgBtnSkip" />
+
+    </LinearLayout>
 
 </LinearLayout>
