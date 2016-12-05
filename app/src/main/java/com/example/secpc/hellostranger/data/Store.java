@@ -79,6 +79,7 @@ public class Store {
     public void setMenus(Menu[] menus) {
         this.menus = menus;
     }
+    public Store(){}
 
     public Store(String storeId, String name, String location, Bitmap[] storeImage, int category, String openTime, String closeTime, Menu[] menus) {
         this.storeId = storeId;
