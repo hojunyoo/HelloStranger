@@ -5,10 +5,12 @@ import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -17,6 +19,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.secpc.hellostranger.R;
+import com.example.secpc.hellostranger.controller.DataInstance;
+import com.example.secpc.hellostranger.controller.ServerRequest;
+import com.example.secpc.hellostranger.data.User;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -33,13 +38,9 @@ public class LogInActivity extends AppCompatActivity {
 
 
     ////////////////////////
-    String JsonURL = "https://raw.githubusercontent.com/ianbar20/JSON-Volley-Tutorial/master/Example-JSON-Files/Example-Object.JSON";
     // This string will hold the results
-    String data = "";
-    // Defining the Volley request queue that handles the URL request concurrently
-    RequestQueue requestQueue;
-
-    /**
+   // Defining the Volley request queue that handles the URL request concurrently
+     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
@@ -55,7 +56,23 @@ public class LogInActivity extends AppCompatActivity {
         join.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(LogInActivity.this, JoinActivity.class));
+                if(btState){
+                    LoginAction();
+                    if(DataInstance.getUser() == null){
+                        Toast.makeText(getApplicationContext(), "아이디와 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        startActivity(new Intent(LogInActivity.this, MainActivity.class));
+                        Log.d("user_id : ", DataInstance.getUser().getUserId());
+                        Log.d("user_name : ", DataInstance.getUser().getName());
+                        Log.d("user_password : ", DataInstance.getUser().getPassword());
+                        Log.d("user_language : ", String.valueOf(DataInstance.getUser().getLanguage()));
+                        Log.d("user_fortaboo : ", String.valueOf(DataInstance.getUser().getLanguage()));
+                    }
+                }
+                else{
+                    startActivity(new Intent(LogInActivity.this, JoinActivity.class));
+                }
             }
         });
         login = (Button) findViewById(R.id.LoginActivity_button_login);
@@ -70,6 +87,17 @@ public class LogInActivity extends AppCompatActivity {
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+    }
+
+    private void LoginAction() {
+
+//        Log.d("id ", id);
+//        Log.d("password ", password);
+//        Log.d("language ", language);
+//        Log.d("taboo ", String.valueOf(Taboo));
+        String url = ServerRequest.SeverUrl;
+        url += "users/login?name="+ etID.getText().toString()+"&password="+etPassword.getText().toString();   ServerRequest.sendUserRequest(getApplicationContext(), url);
+
     }
 
     private void buttonEffect() {

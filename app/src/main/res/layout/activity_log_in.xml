@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
+
+    android:background="@drawable/login_background_pic"
     tools:context="com.example.secpc.hellostranger.activity.LogInActivity">
 
 
@@ -12,34 +14,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
         android:layout_marginTop="108dp"
-        android:src="@drawable/ic_menu_camera"
+        android:src="@drawable/login_hellost_word"
+        android:backgroundTint="@android:color/transparent"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Hello Stranger!"
-        android:id="@+id/textView"
-        android:layout_below="@+id/imageView2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Enjoy your trip"
-        android:id="@+id/textView3"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LOG IN"
+        android:layout_height="48dp"
+        android:background="@drawable/login_login_icon"
         android:id="@+id/LoginActivity_button_login"
         android:layout_marginBottom="10dp"
         android:layout_above="@+id/LoginActivity_button_join"
@@ -47,8 +30,8 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="JOIN"
+        android:layout_height="48dp"
+          android:background="@drawable/login_signup_icion"
         android:id="@+id/LoginActivity_button_join"
         android:layout_marginBottom="25dp"
         android:layout_alignParentBottom="true"

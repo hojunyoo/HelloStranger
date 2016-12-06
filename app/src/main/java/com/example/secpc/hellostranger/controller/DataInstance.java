@@ -9,7 +9,7 @@ import com.example.secpc.hellostranger.data.User;
 public class DataInstance {
     private static User user;
 
-    public User getUser() {
+    public static User getUser() {
         return user;
     }
 

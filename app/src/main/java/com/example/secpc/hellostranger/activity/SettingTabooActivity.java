@@ -116,10 +116,7 @@ public class SettingTabooActivity extends Activity {
         url += "users/new?"+ServerRequest.joinURL("name", id)+"&"+ServerRequest.joinURL("password", password)+"&"
                 + ServerRequest.joinURL("lang", language)+"&" + ServerRequest.joinURL("for_taboo", String.valueOf(Taboo));
         ServerRequest.sendUserRequest(getApplicationContext(), url);
-        User user = new User(null, id, password, Integer.parseInt(language), null, Taboo);
-
         //회원가입한 사용자 등록\
         //후에 자동로그인 sharedpreference적용 예정
-        DataInstance.setUser(user);
     }
 }
