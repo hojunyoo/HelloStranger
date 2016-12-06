@@ -8,8 +8,17 @@ public class User {
     private String name;
     private String password;
     private int language;
-    private String[] keep;
+    private Store[] keep;
     private int taboo;
+
+    public static int TABOO_NOME=0;
+    public static int TABOO_MUSLIM=1;
+    public static int TABOO_HINDUISM=2;
+    public static int TABOO_POLLO=3;
+    public static int TABOO_OVO=4;
+    public static int TABOO_LACTO=5;
+    public static int TABOO_HACTO=6;
+    public static int TABOO_LACTOVO=7;
 
     public String getUserId() {
         return userId;
@@ -43,11 +52,11 @@ public class User {
         this.language = language;
     }
 
-    public String[] getKeep() {
+    public Store[] getKeep() {
         return keep;
     }
 
-    public void setKeep(String[] keep) {
+    public void setKeep(Store[] keep) {
         this.keep = keep;
     }
 
@@ -59,7 +68,7 @@ public class User {
         this.taboo = taboo;
     }
 
-    public User(String userId, String name, String password, int language, String[] keep, int taboo) {
+    public User(String userId, String name, String password, int language, Store[] keep, int taboo) {
         this.userId = userId;
         this.name = name;
         this.password = password;

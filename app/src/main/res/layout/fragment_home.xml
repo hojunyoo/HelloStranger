@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     tools:context=".activity.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,49 +14,48 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_categoryl"
-                android:text="Traditional"
-                android:textColor="@color/white"
-                android:background="@drawable/home_tradi"
+                android:src="@drawable/home_tradi"
+                android:scaleType="fitXY"
                 android:layout_weight="1"/>
 
-            <Button
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_category2"
-                android:text="Rice"
-                android:textColor="@color/white"
-                android:background="@drawable/home_rice"
+                android:scaleType="fitXY"
+                android:src="@drawable/home_rice"
                 android:layout_weight="1"/>
         </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Traditional"
+            android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_category3"
                 android:text="Noodle"
+                android:scaleType="fitXY"
                 android:textColor="@color/white"
                 android:background="@drawable/home_noodle"
                 android:layout_weight="1"/>
 
-            <Button
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_category4"
                 android:text="BBQ"
+                android:scaleType="fitXY"
                 android:textColor="@color/white"
                 android:background="@drawable/home_bbq"
                 android:layout_weight="1"/>
@@ -66,23 +64,24 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <Button
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textColor="@color/white"
                 android:background="@drawable/home_snack"
                 android:id="@+id/HomeFragmnet_imageButton_category5"
-                android:text="Snack"
-                android:layout_weight="1"/>
+                android:scaleType="fitXY"
+                android:layout_weight="1"
+                 />
 
-            <Button
-                android:layout_width="wrap_content"
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_category6"
-                android:text="FastFood"
+                android:scaleType="fitXY"
                 android:textColor="@color/white"
                 android:background="@drawable/home_fastfood"
                 android:layout_weight="1"/>

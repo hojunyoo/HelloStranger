@@ -30,7 +30,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                android:layout_marginLeft="20dp"
-                android:id="@+id/editText" />
+                android:id="@+id/JoinActivity_EditText_id" />
 
         </LinearLayout>
 
@@ -53,7 +53,7 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:layout_marginLeft="20dp"
-                android:id="@+id/editText3" />
+                android:id="@+id/JoinActivity_EditText_password" />
         </LinearLayout>
 
         <LinearLayout
@@ -75,7 +75,7 @@
                 android:inputType="textPassword"
                 android:ems="10"
                 android:layout_marginLeft="20dp"
-                android:id="@+id/editText2" />
+                android:id="@+id/JoinActivity_EditText_repassword" />
 
         </LinearLayout>
 
@@ -136,7 +136,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="가입하기"
-        android:id="@+id/button5"
+        android:id="@+id/JoinActivity_Button_join"
         android:backgroundTint="@color/colorAccent"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />

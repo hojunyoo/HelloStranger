@@ -3,6 +3,8 @@ package com.example.secpc.hellostranger.activity;
 import android.app.Application;
 import android.support.design.widget.FloatingActionButton;
 
+import com.example.secpc.hellostranger.data.User;
+
 /**
  * Created by secpc on 2016-10-16.
  */
@@ -10,6 +12,9 @@ public class MyApplication extends Application {
     private FloatingActionButton floating_back;
     private FloatingActionButton floating_select;
     private FloatingActionButton floating_keep;
+
+    private User user;
+
 
     public FloatingActionButton getFloating_select() {
         return floating_select;
