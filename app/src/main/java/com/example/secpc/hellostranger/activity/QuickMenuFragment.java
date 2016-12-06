@@ -17,9 +17,13 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.example.secpc.hellostranger.R;
+import com.example.secpc.hellostranger.controller.DataInstance;
+import com.example.secpc.hellostranger.controller.ServerRequest;
 
 
 /**
@@ -83,6 +87,7 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         //fragment를 view로 추가 한 후 layout안의 view들을 fragment의 view를 이용해 접근한다.
         View view = inflater.inflate(R.layout.fragment_quick_menu, container, false);
@@ -106,12 +111,19 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
         });
         ((MainActivity)getActivity()).floating_keep.setVisibility(View.VISIBLE);
 
-        flipview = view.findViewById(R.id.flipview);
-        flipview2 = view.findViewById(R.id.flipview2);
-        flipview3 = view.findViewById(R.id.flipview3);
-        flipview.setOnTouchListener(this);
-        flipview2.setOnTouchListener(this);
-        flipview3.setOnTouchListener(this);
+        LayoutInflater inflaters = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        FrameLayout parent = (FrameLayout)view.findViewById(R.id.quickMenu_framelayout);
+        View flipv = inflaters.inflate(R.layout.quickmenu_flipview, parent);
+// fill in any details dynamically here
+        TextView textView = (TextView) flipv.findViewById(R.id.quickMenu_store_name);
+        textView.setText(DataInstance.store.get(0).getClass().getName());
+
+//        flipview = view.findViewById(R.id.flipview1);
+//        flipview2 = view.findViewById(R.id.flipview2);
+//        flipview3 = view.findViewById(R.id.flipview3);
+//        flipview.setOnTouchListener(this);
+//        flipview2.setOnTouchListener(this);
+//        flipview3.setOnTouchListener(this);
 
         return view;
     }

@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.secpc.hellostranger.R;
+import com.example.secpc.hellostranger.controller.ServerRequest;
 import com.example.secpc.hellostranger.data.User;
 
 public class JoinActivity extends AppCompatActivity {
@@ -21,8 +22,7 @@ public class JoinActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
-
-        ImageButton next = (ImageButton)findViewById(R.id.JoinActivity_Button_join);
+       ImageButton next = (ImageButton)findViewById(R.id.JoinActivity_Button_join);
         final EditText editText_id = (EditText)findViewById(R.id.JoinActivity_EditText_id);
         final EditText editText_password = (EditText)findViewById(R.id.JoinActivity_EditText_password);
 

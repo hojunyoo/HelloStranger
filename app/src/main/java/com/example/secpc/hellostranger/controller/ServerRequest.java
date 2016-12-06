@@ -105,21 +105,72 @@ public class ServerRequest extends Application{
         // queue에 Request를 추가해준다.
         queue.add(jsonObjectRequest);
     }
+    //store_id 값에 따라 가게 정보 넘겨줌
+    public static void sendStoreRequest(Context context, String url){
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            //menu_id와 언어 태그에 맞는 menu 정보를 받아와 instance에 저장한다.
+                            instanceStore.setName(response.getString("name"));
+                            instanceStore.setLocation(response.getString("location"));
+                            instanceStore.setCategory(Integer.parseInt(response.getString("category")));
+                            String imageurl = response.getJSONObject("main_picture").getString("url");
+                            if(imageurl.equals(null)){
+                                instanceStore.setStoreImage(null);
+                            }
+                            else {
+                                ImageRequest request = new ImageRequest(imageurl,
+                                        new Response.Listener<Bitmap>() {
+                                            @Override
+                                            public void onResponse(Bitmap bitmap) {
+                                                instanceStore.setStoreImage(bitmap);
+                                            }
+                                        }, 0, 0, null,
+                                        new Response.ErrorListener() {
+                                            public void onErrorResponse(VolleyError error) {
+                                                instanceStore.setStoreImage(null);
+                                            }
+                                        });
+                                // Access the RequestQueue through your singleton class.
+                                //     Singleton.getInstance(publiccontext).addToRequestQueue(request);
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        // queue에 Request를 추가해준다.
+        queue.add(jsonObjectRequest);
+    }
     //quick-menu 정보를 받아온다
     public static void sendQuickMenuRequest(Context context, String url){
         RequestQueue queue = Volley.newRequestQueue(context);
         publiccontext = context;
         instanceStore = new Store();
+
         Log.d("들어왓니?", "응");
          JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        String url = ServerRequest.SeverUrl;
                      try
                         {
-                            Store store = new Store();
-                            store.setStoreId(response.getString("store_id"));
-                           Log.d("여기는? : ", store.getStoreId());
+                            instanceStore.setStoreId(response.getString("store_id"));
+                           Log.d("여기는? : ", instanceStore.getStoreId());
+                            url += "streets/get_here_store?store_id="+instanceStore.getStoreId();
+                            sendStoreRequest(publiccontext, url);
                            JSONArray datas = response.getJSONArray("menu");
                             int size = datas.length();
                             Log.i("size", String.valueOf(size));
@@ -135,7 +186,7 @@ public class ServerRequest extends Application{
                                 String imageURL = datas.getJSONObject(i).getJSONObject("picture").getString("url");
                                 Log.d("이미지 : ", imageURL);
                                 instanceMenu[ServerRequest.MenuIndex].setIsQuickMenu(Boolean.parseBoolean(datas.getJSONObject(i).getString("quick_menu")));
-                                String url = ServerRequest.SeverUrl;
+                                url = ServerRequest.SeverUrl;
                                 url += "transfer/menu_pan?menu_id="+instanceMenu[ServerRequest.MenuIndex].getMenuId() +
                                         "&lang_id="+3;
                                 sendMenuTransferRequest(publiccontext, url);
@@ -161,8 +212,8 @@ public class ServerRequest extends Application{
                                 }
 
                             }
-                            store.setMenus(instanceMenu);
-                            DataInstance.store.add(store);
+                            instanceStore.setMenus(instanceMenu);
+                            DataInstance.store.add(instanceStore);
                             Log.d("가게이름 : ", (DataInstance.store).get(DataInstance.storeIndex).getClass().getName());
                             DataInstance.storeIndex=(DataInstance.storeIndex+1)%10;
                         }

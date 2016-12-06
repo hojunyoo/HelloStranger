@@ -2,16 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/quickMenu_framelayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activity.QuickMenuFragment">
 
-    <include layout="@layout/quickmenu_flipview"
-        android:id="@+id/flipview3" />
+    <!--<include layout="@layout/quickmenu_flipview"-->
+        <!--android:id="@+id/flipview3" />-->
 
-    <include layout="@layout/quickmenu_flipview"
-        android:id="@+id/flipview2" />
+    <!--<include layout="@layout/quickmenu_flipview"-->
+        <!--android:id="@+id/flipview2" />-->
 
 
-    <include layout="@layout/quickmenu_flipview"
-        android:id="@+id/flipview1" />
+    <!--<include layout="@layout/quickmenu_flipview"-->
+        <!--android:id="@+id/flipview1" />-->
 </FrameLayout>

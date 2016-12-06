@@ -27,17 +27,17 @@ public class SplashActivity extends AppCompatActivity {
         * gif file with glide image loading
         */
         ImageView splashView = (ImageView) findViewById(R.id.fullscreen_content_controls);
-        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=uzqxdbpwheomjatgklrs170350");
-        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=kfdrpwbmjnutahzisloc197033");
-        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=pbftlzeusymqhwgxjnak204675");
-        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=oesglxniztvbmycjfqrp212125");
-        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=bcygkxdwazsfilujvopm239331");
-        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=buzheilkwcxrvdgspatn252154");
-        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=uozvygwbpcmkrnjdxitl258705");
 
         GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(splashView);
         if(splashView != null)
             Glide.with(this).load(R.drawable.splash_hello_stranger0).crossFade().into(imageViewTarget);
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/all_around_menus?beacon_dna=uzqxdbpwheomjatgklrs170350");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/all_around_menus?beacon_dna=kfdrpwbmjnutahzisloc197033");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/all_around_menus?beacon_dna=pbftlzeusymqhwgxjnak204675");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/all_around_menus?beacon_dna=oesglxniztvbmycjfqrp212125");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/all_around_menus?beacon_dna=bcygkxdwazsfilujvopm239331");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/all_around_menus?beacon_dna=buzheilkwcxrvdgspatn252154");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/all_around_menus?beacon_dna=uozvygwbpcmkrnjdxitl258705");
 
         int secondsDelayed = 1;
         new Handler().postDelayed(new Runnable() {

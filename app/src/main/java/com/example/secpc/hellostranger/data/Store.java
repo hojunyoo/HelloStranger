@@ -9,7 +9,7 @@ public class Store {
     private String storeId;
     private String name;
     private String location;
-    private Bitmap[] storeImage;
+    private Bitmap storeImage;
     private int category;
     private String openTime;
     private String closeTime;
@@ -40,11 +40,11 @@ public class Store {
         this.location = location;
     }
 
-    public Bitmap[] getStoreImage() {
+    public Bitmap getStoreImage() {
         return storeImage;
     }
 
-    public void setStoreImage(Bitmap[] storeImage) {
+    public void setStoreImage(Bitmap storeImage) {
         this.storeImage = storeImage;
     }
 
@@ -81,7 +81,7 @@ public class Store {
     }
     public Store(){}
 
-    public Store(String storeId, String name, String location, Bitmap[] storeImage, int category, String openTime, String closeTime, Menu[] menus) {
+    public Store(String storeId, String name, String location, Bitmap storeImage, int category, String openTime, String closeTime, Menu[] menus) {
         this.storeId = storeId;
         this.name = name;
         this.location = location;
