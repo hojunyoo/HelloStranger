@@ -18,12 +18,15 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.example.secpc.hellostranger.R;
 import com.example.secpc.hellostranger.controller.DataInstance;
 import com.example.secpc.hellostranger.controller.ServerRequest;
+import com.example.secpc.hellostranger.data.Menu;
+import com.example.secpc.hellostranger.data.Store;
 
 
 /**
@@ -116,12 +119,46 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
         View flipv = inflaters.inflate(R.layout.quickmenu_flipview, parent);
 // fill in any details dynamically here
         TextView textView = (TextView) flipv.findViewById(R.id.quickMenu_store_name);
-        textView.setText(DataInstance.store.get(0).getClass().getName());
+        textView.setText(((Store)DataInstance.store.get(1)).getName());
+        Menu[] menus = new Menu[2];
+        menus = ((Store)DataInstance.store.get(1)).getMenus();
+        TextView menu1name = (TextView) flipv.findViewById(R.id.quickMenu_menu1_name);
+        menu1name.setText(menus[0].getName());
+
+        TextView menu1Text = (TextView) flipv.findViewById(R.id.quickMenu_menu1_text);
+        menu1Text.setText("#"+menus[0].getFoodGlossary1()+"\n#"+menus[0].getFoodGlossary2()
+        +"\n#"+menus[0].getTaste()+"\n#"+menus[0].getCookingmethod());
+
+//        TextView menu1Price = (TextView) flipv.findViewById(R.id.quickMenu_menu1_price);
+//        Log.d("가격??", String.valueOf(menus[0].getPrice()));
+//        menu1Price.setText(menus[0].getPrice());
+
+        if(menus[0].getMenuImage()!=null){
+            ImageView imageView = (ImageView)flipv.findViewById(R.id.quickMenu_menu1_image);
+            imageView.setImageBitmap(menus[0].getMenuImage());
+        }
+        TextView menu2name = (TextView) flipv.findViewById(R.id.quickMenu_menu2_name);
+        menu2name.setText(menus[1].getName());
+
+        //menu2
+
+        TextView menu2Text = (TextView) flipv.findViewById(R.id.quickMenu_menu2_text);
+        menu2Text.setText("#"+menus[1].getFoodGlossary1()+"\n#"+menus[1].getFoodGlossary2()
+                +"\n#"+menus[1].getTaste()+"\n#"+menus[1].getCookingmethod());
+
+        TextView menu2Price = (TextView) flipv.findViewById(R.id.quickMenu_menu2_price);
+        Log.d("가격??", String.valueOf(menus[1].getPrice()));
+//        menu2Price.setText(menus[1].getPrice());
+
+        if(menus[1].getMenuImage()!=null){
+            ImageView imageView = (ImageView)flipv.findViewById(R.id.quickMenu_menu2_image);
+            imageView.setImageBitmap(menus[1].getMenuImage());
+        }
 
 //        flipview = view.findViewById(R.id.flipview1);
 //        flipview2 = view.findViewById(R.id.flipview2);
 //        flipview3 = view.findViewById(R.id.flipview3);
-//        flipview.setOnTouchListener(this);
+        flipv.setOnTouchListener(this);
 //        flipview2.setOnTouchListener(this);
 //        flipview3.setOnTouchListener(this);
 

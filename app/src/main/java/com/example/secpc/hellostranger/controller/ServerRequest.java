@@ -33,7 +33,6 @@ public class ServerRequest extends Application{
     //이미지 로딩
     public static Bitmap image;
      //파싱 시 array 제어 변수
-     public static int MenuIndex=0;
     static Context publiccontext;
 
     //기본 url 주소
@@ -76,7 +75,7 @@ public class ServerRequest extends Application{
         queue.add(jsonObjectRequest);
     }
     //menu_id 값, 언어에 따라 메뉴 정보 넘겨줌
-    public static void sendMenuTransferRequest(Context context, String url){
+    public static void sendMenuTransferRequest(Context context, String url, final int MenuIndex){
         RequestQueue queue = Volley.newRequestQueue(context);
 
         Log.d("뭐지url?", url);
@@ -86,11 +85,13 @@ public class ServerRequest extends Application{
                     public void onResponse(JSONObject response) {
                         try {
                             //menu_id와 언어 태그에 맞는 menu 정보를 받아와 instance에 저장한다.
-                            instanceMenu[ServerRequest.MenuIndex].setName(response.getString("foodname"));
-                            instanceMenu[ServerRequest.MenuIndex].setFoodGlossary1(response.getString("foodstuff_1"));
-                            instanceMenu[ServerRequest.MenuIndex].setFoodGlossary2(response.getString("foodstuff_2"));
-                            instanceMenu[ServerRequest.MenuIndex].setTaste(response.getString("taste"));
-                            instanceMenu[ServerRequest.MenuIndex].setCookingmethod(response.getString("cookingmethod"));
+                            Log.d("menuindex:", String.valueOf(MenuIndex));
+                            instanceMenu[MenuIndex].setName(response.getString("foodname"));
+                            Log.d("menuindex:", String.valueOf(instanceMenu[MenuIndex].getName()));
+                            instanceMenu[MenuIndex].setFoodGlossary1(response.getString("foodstuff_1"));
+                            instanceMenu[MenuIndex].setFoodGlossary2(response.getString("foodstuff_2"));
+                            instanceMenu[MenuIndex].setTaste(response.getString("taste"));
+                            instanceMenu[MenuIndex].setCookingmethod(response.getString("cookingmethod"));
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -116,6 +117,7 @@ public class ServerRequest extends Application{
                         try {
                             //menu_id와 언어 태그에 맞는 menu 정보를 받아와 instance에 저장한다.
                             instanceStore.setName(response.getString("name"));
+                            Log.d("가게이름 : ", response.getString("name"));
                             instanceStore.setLocation(response.getString("location"));
                             instanceStore.setCategory(Integer.parseInt(response.getString("category")));
                             String imageurl = response.getJSONObject("main_picture").getString("url");
@@ -165,12 +167,14 @@ public class ServerRequest extends Application{
                     @Override
                     public void onResponse(JSONObject response) {
                         String url = ServerRequest.SeverUrl;
+                        int MenuIndex;
                      try
                         {
                             instanceStore.setStoreId(response.getString("store_id"));
                            Log.d("여기는? : ", instanceStore.getStoreId());
                             url += "streets/get_here_store?store_id="+instanceStore.getStoreId();
                             sendStoreRequest(publiccontext, url);
+
                            JSONArray datas = response.getJSONArray("menu");
                             int size = datas.length();
                             Log.i("size", String.valueOf(size));
@@ -178,33 +182,36 @@ public class ServerRequest extends Application{
                             for(int i=0; i<size; i++)
                             {
 
-                                ServerRequest.MenuIndex = i;
-                                instanceMenu[ServerRequest.MenuIndex] = new Menu();
-                                instanceMenu[ServerRequest.MenuIndex].setMenuId(datas.getJSONObject(i).getString("id"));
+                                MenuIndex = i;
+                                instanceMenu[MenuIndex] = new Menu();
+                                instanceMenu[MenuIndex].setMenuId(datas.getJSONObject(i).getString("id"));
                                 Log.d("메뉴 : ", instanceMenu[i].getMenuId());
-                                instanceMenu[ServerRequest.MenuIndex].setPrice(Integer.parseInt(datas.getJSONObject(i).getString("price")));
+                                instanceMenu[MenuIndex].setPrice(Integer.parseInt(datas.getJSONObject(i).getString("price")));
+                                Log.d("가격!!!! : ", String.valueOf(instanceMenu[MenuIndex].getPrice()));
+
                                 String imageURL = datas.getJSONObject(i).getJSONObject("picture").getString("url");
                                 Log.d("이미지 : ", imageURL);
-                                instanceMenu[ServerRequest.MenuIndex].setIsQuickMenu(Boolean.parseBoolean(datas.getJSONObject(i).getString("quick_menu")));
+                                instanceMenu[MenuIndex].setIsQuickMenu(Boolean.parseBoolean(datas.getJSONObject(i).getString("quick_menu")));
                                 url = ServerRequest.SeverUrl;
-                                url += "transfer/menu_pan?menu_id="+instanceMenu[ServerRequest.MenuIndex].getMenuId() +
-                                        "&lang_id="+3;
-                                sendMenuTransferRequest(publiccontext, url);
+                                url += "transfer/menu_pan?menu_id="+instanceMenu[MenuIndex].getMenuId() +
+                                        "&lang_id="+1;
+                                sendMenuTransferRequest(publiccontext, url, MenuIndex);
 
                                 if(imageURL.equals(null)){
-                                    instanceMenu[ServerRequest.MenuIndex].setMenuImage(null);
+                                    instanceMenu[MenuIndex].setMenuImage(null);
                                 }
                                 else{
+                                    final int finalMenuIndex = MenuIndex;
                                     ImageRequest request = new ImageRequest(imageURL,
                                             new Response.Listener<Bitmap>() {
                                                 @Override
                                                 public void onResponse(Bitmap bitmap) {
-                                                    instanceMenu[ServerRequest.MenuIndex].setMenuImage(bitmap);
+                                                    instanceMenu[finalMenuIndex].setMenuImage(bitmap);
                                                 }
                                             }, 0, 0, null,
                                             new Response.ErrorListener() {
                                                 public void onErrorResponse(VolleyError error) {
-                                                    instanceMenu[ServerRequest.MenuIndex].setMenuImage(null);
+                                                    instanceMenu[finalMenuIndex].setMenuImage(null);
                                                 }
                                             });
                                     // Access the RequestQueue through your singleton class.
@@ -214,7 +221,7 @@ public class ServerRequest extends Application{
                             }
                             instanceStore.setMenus(instanceMenu);
                             DataInstance.store.add(instanceStore);
-                            Log.d("가게이름 : ", (DataInstance.store).get(DataInstance.storeIndex).getClass().getName());
+                            Log.d("가게이름 : ", ((Store)DataInstance.store.get(DataInstance.storeIndex)).getName());
                             DataInstance.storeIndex=(DataInstance.storeIndex+1)%10;
                         }
                         catch (Exception e)
