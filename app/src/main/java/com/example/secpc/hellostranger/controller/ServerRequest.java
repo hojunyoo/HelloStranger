@@ -1,15 +1,19 @@
-package com.example.secpc.hellostranger.ServerDBObject;
+package com.example.secpc.hellostranger.controller;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.secpc.hellostranger.R;
+import com.example.secpc.hellostranger.activity.Main2Activity;
 import com.example.secpc.hellostranger.data.Menu;
 import com.example.secpc.hellostranger.data.Store;
 import com.example.secpc.hellostranger.data.User;
@@ -26,8 +30,11 @@ public class ServerRequest extends Application{
     public static Store instanceStore;
     public static Menu[] instanceMenu = new Menu[20];
 
+    //이미지 로딩
+    public static Bitmap image;
      //파싱 시 array 제어 변수
      public static int MenuIndex=0;
+    static Context publiccontext;
 
     //기본 url 주소
     public static String SeverUrl ="https://hello-stranger-dobeeisfree.c9users.io/v1/";
@@ -76,6 +83,8 @@ public class ServerRequest extends Application{
     //menu_id 값, 언어에 따라 메뉴 정보 넘겨줌
     public static void sendMenuTransferRequest(Context context, String url){
         RequestQueue queue = Volley.newRequestQueue(context);
+
+        Log.d("뭐지url?", url);
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,
                 new Response.Listener<JSONObject>() {
                     @Override
@@ -102,32 +111,60 @@ public class ServerRequest extends Application{
         queue.add(jsonObjectRequest);
     }
     //quick-menu 정보를 받아온다
-    public static void sendQuickMenuRequest(final Context context, String url){
+    public static void sendQuickMenuRequest(Context context, String url){
         RequestQueue queue = Volley.newRequestQueue(context);
-
+        publiccontext = context;
+        instanceStore = new Store();
+        Log.d("들어왓니?", "응");
          JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-
                      try
                         {
-                            instanceStore.setStoreId(response.getString("id"));
+                            Log.d("여긴왔니?", "응");
+                            instanceStore.setStoreId(response.getString("store_id"));
+                            Log.d("stingid : ", instanceStore.getStoreId());
                            JSONArray datas = response.getJSONArray("menu");
                             int size = datas.length();
                             Log.i("size", String.valueOf(size));
 
                             for(int i=0; i<size; i++)
                             {
+
                                 ServerRequest.MenuIndex = i;
                                 instanceMenu[ServerRequest.MenuIndex] = new Menu();
-                                instanceMenu[ServerRequest.MenuIndex].setMenuId(datas.getJSONObject(i).getString("menu_id"));
+                                instanceMenu[ServerRequest.MenuIndex].setMenuId(datas.getJSONObject(i).getString("id"));
+                                Log.d("메뉴 : ", instanceMenu[i].getMenuId());
                                 instanceMenu[ServerRequest.MenuIndex].setPrice(Integer.parseInt(datas.getJSONObject(i).getString("price")));
-                                instanceMenu[ServerRequest.MenuIndex].setIsQuickMenu(true);
+                                String imageURL = datas.getJSONObject(i).getJSONObject("picture").getString("url");
+                                Log.d("이미지 : ", imageURL);
+                                instanceMenu[ServerRequest.MenuIndex].setIsQuickMenu(Boolean.parseBoolean(datas.getJSONObject(i).getString("quick_menu")));
                                 String url = ServerRequest.SeverUrl;
                                 url += "transfer/menu_pan?menu_id="+instanceMenu[ServerRequest.MenuIndex].getMenuId() +
                                         "&lang_id="+3;
-                                sendMenuTransferRequest(context, url);
+                                sendMenuTransferRequest(publiccontext, url);
+
+                                if(imageURL.equals(null)){
+                                    instanceMenu[ServerRequest.MenuIndex].setMenuImage(null);
+                                }
+                                else{
+                                    ImageRequest request = new ImageRequest(imageURL,
+                                            new Response.Listener<Bitmap>() {
+                                                @Override
+                                                public void onResponse(Bitmap bitmap) {
+                                                    instanceMenu[ServerRequest.MenuIndex].setMenuImage(bitmap);
+                                                }
+                                            }, 0, 0, null,
+                                            new Response.ErrorListener() {
+                                                public void onErrorResponse(VolleyError error) {
+                                                    instanceMenu[ServerRequest.MenuIndex].setMenuImage(null);
+                                                }
+                                            });
+                                    // Access the RequestQueue through your singleton class.
+                               //     Singleton.getInstance(publiccontext).addToRequestQueue(request);
+                                }
+
                             }
                         }
                         catch (Exception e)
@@ -136,7 +173,6 @@ public class ServerRequest extends Application{
                         }
 
                     }
-
 
 
                 }, new Response.ErrorListener() {
@@ -150,6 +186,7 @@ public class ServerRequest extends Application{
         queue.add(jsonObjectRequest);
     }
 
+    //ImageRequest 이미지 url 파싱
 
 
 }

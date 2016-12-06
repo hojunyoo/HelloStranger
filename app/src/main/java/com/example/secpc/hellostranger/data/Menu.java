@@ -1,5 +1,8 @@
 package com.example.secpc.hellostranger.data;
 
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+
 import java.util.HashMap;
 
 /**
@@ -15,6 +18,7 @@ public class Menu {
     private String foodGlossary2;
     private String taste;
     private String cookingmethod;
+    private Bitmap menuImage;
 
 
     public Menu(){}
@@ -93,5 +97,13 @@ public class Menu {
 
     public void setFoodGlossary1(String foodGlossary1) {
         this.foodGlossary1 = foodGlossary1;
+    }
+
+    public Bitmap getMenuImage() {
+        return menuImage;
+    }
+
+    public void setMenuImage(Bitmap menuImage) {
+        this.menuImage = menuImage;
     }
 }

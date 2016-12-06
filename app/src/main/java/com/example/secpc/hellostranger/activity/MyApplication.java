@@ -13,6 +13,7 @@ public class MyApplication extends Application {
     private FloatingActionButton floating_select;
     private FloatingActionButton floating_keep;
 
+    private User user;
 
 
     public FloatingActionButton getFloating_select() {
