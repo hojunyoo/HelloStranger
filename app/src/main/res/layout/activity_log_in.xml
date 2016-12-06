@@ -14,10 +14,20 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
         android:layout_marginTop="108dp"
-        android:src="@drawable/login_hellost_word"
+        android:src="@drawable/login_hellostranger_word"
         android:backgroundTint="@android:color/transparent"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView3"
+        android:src="@drawable/login_enjoy_word"
+        android:backgroundTint="@android:color/transparent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/imageView2"
+        android:layout_marginTop="15dp"/>
 
     <Button
         android:layout_width="match_parent"
@@ -25,14 +35,21 @@
         android:background="@drawable/login_login_icon"
         android:id="@+id/LoginActivity_button_login"
         android:layout_marginBottom="10dp"
+        android:text="Log in"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/colorAccent"
         android:layout_above="@+id/LoginActivity_button_join"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="48dp"
-          android:background="@drawable/login_signup_icion"
+          android:background="@drawable/login_signup_icon"
         android:id="@+id/LoginActivity_button_join"
+
+        android:text="Sign up"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/colorPrimary"
         android:layout_marginBottom="25dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
@@ -42,7 +59,10 @@
         android:layout_height="wrap_content"
         android:id="@+id/LoginActivity_editText_id"
         android:hint="ID"
+        android:padding="10dp"
         android:visibility="invisible"
+        android:background="@color/editText_overlay"
+        android:layout_marginBottom="15dp"
         android:layout_above="@+id/LoginActivity_editText_password"
         android:layout_alignLeft="@+id/LoginActivity_editText_password"
         android:layout_alignStart="@+id/LoginActivity_editText_password" />
@@ -52,8 +72,11 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:visibility="invisible"
+        android:padding="10dp"
+        android:background="@color/editText_overlay"
         android:ems="10"
-        android:hint="PASSWORD"
+        android:layout_marginBottom="15dp"
+        android:hint="Password"
         android:id="@+id/LoginActivity_editText_password"
         android:layout_above="@+id/LoginActivity_button_join"
         android:layout_alignLeft="@+id/LoginActivity_button_join"

@@ -14,4 +14,8 @@
     <dimen name="menu_qaunti_padding">10dp</dimen>
     <dimen name="order_total_size">30dp</dimen>
     <dimen name="zero_dp">0dp</dimen>
+
+    <!--bottom button size-->
+    <dimen name="button_height">50dp</dimen>
+
 </resources>

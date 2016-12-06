@@ -10,6 +10,7 @@
     <color name="colorAccent">#ff0033</color>
 
     <color name="colorAlpha">#75ff0033</color>
+    <color name="editText_overlay">#94ffffff</color>
     <color name="dark_overlay">#44442828</color>
     <color name="black_overlay">#66000000</color>
     <color name="textColor">#000000</color>

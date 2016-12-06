@@ -34,4 +34,14 @@
     <string name="for_having_equal_width">1</string>
     <string name="title_activity_main2">Main2Activity</string>
 
+
+    <!--home fragment-->
+    <string name="traditional">traditional</string>
+    <string name="rice">rice</string>
+    <string name="noodle">noodle</string>
+    <string name="bbq">BBQ</string>
+    <string name="snack">snack</string>
+    <string name="fastfood">fastfood</string>
+
+
 </resources>

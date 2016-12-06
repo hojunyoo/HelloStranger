@@ -7,7 +7,7 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:background="@drawable/border"
@@ -18,7 +18,7 @@
         android:orientation="horizontal"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:gravity="center_vertical|center|center_horizontal"
+        android:gravity="center_horizontal|bottom"
         android:layout_weight="1" >
 
         <ImageButton
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ovo"
-            android:layout_margin="@dimen/fab_margin"
+              android:layout_margin="@dimen/fab_margin"
             android:id="@+id/TabooActivity_ImageButton_ovo" />
 
         <ImageButton
@@ -69,7 +69,7 @@
         android:orientation="horizontal"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:gravity="center_vertical|center|center_horizontal"
+        android:gravity="center_horizontal"
         android:layout_weight="1">
 
         <ImageButton
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/muslim"
-            android:layout_marginLeft="@dimen/fab_margin"
+             android:layout_marginLeft="@dimen/fab_margin"
             android:id="@+id/TabooActivity_ImageButton_muslim" />
     </LinearLayout>
 
@@ -91,24 +91,35 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="bottom"
         android:layout_weight="0.3" >
 
         <ImageButton
             android:layout_width="@dimen/zero_dp"
             android:layout_weight="@string/for_having_equal_width"
-            android:layout_height="match_parent"
+            android:layout_height="@dimen/button_height"
             android:background="@drawable/taboo_skip_icon"
             android:id="@+id/TabooActivity_ImageButton_skip"
-            android:layout_alignParentBottom="true" />
+             />
 
-        <ImageButton
+        <RelativeLayout
             android:layout_width="@dimen/zero_dp"
             android:layout_weight="@string/for_having_equal_width"
-            android:layout_height="match_parent"
-            android:background="@drawable/taboo_select_icon"
-            android:id="@+id/TabooActivity_ImageButton_selet"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/TabooActivity_ImageButton_skip" />
+            android:layout_height="@dimen/button_height">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/login_signup_icon"
+                android:id="@+id/TabooActivity_ImageButton_selet"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="select"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
 
     </LinearLayout>
 

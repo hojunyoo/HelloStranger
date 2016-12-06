@@ -35,6 +35,14 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    //CATEGORY FLAG
+    public static int CATE_TRANDITIONAL=0;
+    public static int CATE_RICE=1;
+    public static int CATE_NOODLE=2;
+    public static int CATE_BBQ=3;
+    public static int CATE_SNACK=4;
+    public static int CATE_FASTFOOD=5;
+
     private OnFragmentInteractionListener mListener;
 
     public HomeFragment() {
@@ -77,26 +85,102 @@ public class HomeFragment extends Fragment {
 
         ((MainActivity)getActivity()).toolbar.setTitle(R.string.app_home);
 
-        for(int i=0;i<6;i++){
-            //후에 배열별로 id연결 및 이벤트 구현해야함
-            buttons[i] = (ImageView) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
-            buttons[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Log.d("들어왔니", "ㅇ");
-                    FragmentManager fragmentManager = getFragmentManager();
+        buttons[0] = (ImageView) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
+        buttons[0].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
 
-                    QuickMenuFragment frament = new QuickMenuFragment();
-                    Bundle bundle = new Bundle();
-                    frament.setArguments(bundle);
+                QuickMenuFragment frament = new QuickMenuFragment();
+                Bundle bundle = new Bundle();
+                frament.setArguments(bundle);
 
-                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
-                    fragmentTransaction.addToBackStack(null);
-                    fragmentTransaction.commit();
-                }
-            });
-        }
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        buttons[1] = (ImageView) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
+        buttons[1].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+
+                QuickMenuFragment frament = new QuickMenuFragment();
+                Bundle bundle = new Bundle();
+                frament.setArguments(bundle);
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        buttons[2] = (ImageView) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
+        buttons[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+
+                QuickMenuFragment frament = new QuickMenuFragment();
+                Bundle bundle = new Bundle();
+                frament.setArguments(bundle);
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        buttons[3] = (ImageView) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
+        buttons[3].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+
+                QuickMenuFragment frament = new QuickMenuFragment();
+                Bundle bundle = new Bundle();
+                frament.setArguments(bundle);
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        buttons[4] = (ImageView) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
+        buttons[4].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+
+                QuickMenuFragment frament = new QuickMenuFragment();
+                Bundle bundle = new Bundle();
+                frament.setArguments(bundle);
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        buttons[5] = (ImageView) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
+        buttons[5].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+
+                QuickMenuFragment frament = new QuickMenuFragment();
+                Bundle bundle = new Bundle();
+                frament.setArguments(bundle);
+
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.flContent, frament); // Activity 레이아웃의 View ID
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
 
 

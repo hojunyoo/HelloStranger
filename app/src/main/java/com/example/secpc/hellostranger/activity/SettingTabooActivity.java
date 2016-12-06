@@ -2,6 +2,7 @@ package com.example.secpc.hellostranger.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Image;
 import android.provider.ContactsContract;
 import android.support.design.widget.TabLayout;
@@ -23,21 +24,29 @@ public class SettingTabooActivity extends Activity {
     String id;
     String password;
     String language;
+    String pageType;
+    ImageButton[] taboo = new ImageButton[7];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting_taboo);
         Intent intent = getIntent();
-        id = intent.getExtras().getString("id");
-        password = intent.getExtras().getString("password");
-        language = intent.getExtras().getString("language");
+        pageType = intent.getExtras().getString("page");
+        if(pageType.equals(JoinActivity.JOINPAGE)){
+            id = intent.getExtras().getString("id");
+            password = intent.getExtras().getString("password");
+            language = intent.getExtras().getString("language");
 
-        final ImageButton[] taboo = new ImageButton[7];
+        }
+
+
+
         taboo[0] = (ImageButton)findViewById(R.id.TabooActivity_ImageButton_pollo);
         taboo[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Taboo = User.TABOO_POLLO;
+                checkedButton(taboo[0]);
             }
         });
         taboo[1] = (ImageButton)findViewById(R.id.TabooActivity_ImageButton_pesco);
@@ -45,20 +54,21 @@ public class SettingTabooActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Taboo = User.TABOO_PESCO;
+                checkedButton(taboo[1]);
             }
         });
         taboo[2] = (ImageButton)findViewById(R.id.TabooActivity_ImageButton_lacto);
         taboo[2].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Taboo = User.TABOO_LACTO;
+                Taboo = User.TABOO_LACTO; checkedButton(taboo[2]);
             }
         });
         taboo[3] = (ImageButton)findViewById(R.id.TabooActivity_ImageButton_ovo);
         taboo[3].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Taboo = User.TABOO_OVO;
+                Taboo = User.TABOO_OVO; checkedButton(taboo[3]);
             }
         });
         taboo[4] = (ImageButton)findViewById(R.id.TabooActivity_ImageButton_lactovo);
@@ -66,6 +76,7 @@ public class SettingTabooActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Taboo = User.TABOO_LACTOVO;
+                checkedButton(taboo[4]);
             }
         });
         taboo[5] = (ImageButton)findViewById(R.id.TabooActivity_ImageButton_hinduism);
@@ -73,6 +84,7 @@ public class SettingTabooActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Taboo = User.TABOO_HINDUISM;
+                checkedButton(taboo[5]);
             }
         });
         taboo[6] = (ImageButton)findViewById(R.id.TabooActivity_ImageButton_muslim);
@@ -80,6 +92,7 @@ public class SettingTabooActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Taboo = User.TABOO_MUSLIM;
+                checkedButton(taboo[6]);
             }
         });
         ImageButton button_skip = (ImageButton)findViewById(R.id.TabooActivity_ImageButton_skip);
@@ -87,6 +100,10 @@ public class SettingTabooActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Taboo = User.TABOO_NOME;
+                createUser();
+                Intent goMain = new Intent(SettingTabooActivity.this, MainActivity.class);
+                startActivity(goMain);
+                finish();
             }
         });
         ImageButton button_select = (ImageButton)findViewById(R.id.TabooActivity_ImageButton_selet);
@@ -97,7 +114,12 @@ public class SettingTabooActivity extends Activity {
                     Toast.makeText(getApplicationContext(), "타부를 선택하여 주십시오.", Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    createUser();
+                    if(pageType.equals(JoinActivity.JOINPAGE)){
+                        createUser();
+                    }
+                    else{
+                        //타부만 update;
+                    }
                     Intent goMain = new Intent(SettingTabooActivity.this, MainActivity.class);
                     startActivity(goMain);
                     finish();
@@ -105,6 +127,14 @@ public class SettingTabooActivity extends Activity {
             }
         });
     }
+
+    private void checkedButton(ImageButton imageButton) {
+        for(int i=0;i<7;i++){
+            taboo[i].setImageResource(R.drawable.quick_nothing_icon);
+        }
+        imageButton.setImageResource(R.drawable.taboo_select_icon);
+    }
+
     private void createUser(){
         String url = ServerRequest.SeverUrl;
 

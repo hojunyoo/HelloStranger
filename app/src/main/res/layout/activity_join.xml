@@ -8,22 +8,6 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/colorPrimary2"
-        android:id="@+id/linearLayout_top">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello Stranger"
-            android:layout_gravity="center"
-            android:textColor="#ffffff"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textAlignment="center"
-            />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="35dp"
         android:layout_marginTop="30dp"
@@ -106,39 +90,39 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/south_korea"
-                android:layout_weight="1"
+                android:layout_margin="5dp"
                 android:scaleType="fitXY"
-                android:backgroundTint="@android:color/transparent"
-                android:id="@+id/JoinActivity_button_language_kor" />
+                android:background="@drawable/south_korea"
+                android:layout_weight="1"
+                 android:id="@+id/JoinActivity_button_language_kor" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/united_kingdom"
-                 android:scaleType="fitXY"
-                android:backgroundTint="@android:color/transparent"
-                android:layout_weight="1"
+                android:background="@drawable/united_kingdom"
+                   android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:layout_margin="5dp"
                 android:id="@+id/JoinActivity_button_language_eng" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/china"
-                android:scaleType="fitXY"
+                android:background="@drawable/china"
                 android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:layout_margin="5dp"
                 android:id="@+id/JoinActivity_button_language_chin"
-                android:backgroundTint="@android:color/transparent"
                  />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/japan"
-                android:scaleType="fitXY"
+                android:background="@drawable/japan"
                 android:layout_weight="1"
-                android:backgroundTint="@android:color/transparent"
-                 android:id="@+id/JoinActivity_button_language_jan"
+                android:layout_margin="5dp"
+                android:scaleType="fitXY"
+                  android:id="@+id/JoinActivity_button_language_jan"
                 />
         </LinearLayout>
 
@@ -152,7 +136,7 @@
         android:orientation="horizontal">
         <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/button_height"
             android:text="가입하기"
             android:id="@+id/JoinActivity_Button_cancel"
             android:background="@drawable/signup_cancel_icon"
@@ -160,12 +144,31 @@
             android:layout_weight="1" />
         <ImageButton
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="@dimen/button_height"
             android:text="가입하기"
             android:id="@+id/JoinActivity_Button_join"
             android:background="@drawable/signup_next_icon"
             android:layout_weight="1" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary2"
+        android:id="@+id/linearLayout_top"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello Stranger"
+            android:layout_gravity="center"
+            android:textColor="#ffffff"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textAlignment="center"
+            />
     </LinearLayout>
 
 </RelativeLayout>

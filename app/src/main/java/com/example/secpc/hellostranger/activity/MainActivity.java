@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity
     public FloatingActionButton floating_back;
     public FloatingActionButton floating_select;
     public FloatingActionButton floating_keep;
+    public static int MAINPAGE=1;
     public Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,6 +181,7 @@ public class MainActivity extends AppCompatActivity
                 floating_select.setVisibility(View.GONE);
                 floating_keep.setVisibility(View.GONE);
                 Intent goTaboo = new Intent(MainActivity.this, SettingTabooActivity.class);
+                goTaboo.putExtra("page", MAINPAGE);
                 startActivity(goTaboo);
                 return true;
         }

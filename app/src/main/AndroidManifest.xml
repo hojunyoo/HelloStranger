@@ -28,9 +28,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.JoinActivity"></activity>
+        <activity android:name=".activity.JoinActivity"
+            android:theme="@style/AppTheme"></activity>
         <activity android:name=".activity.ReviewActivity" />
-        <activity android:name=".activity.SettingTabooActivity" />
+        <activity android:name=".activity.SettingTabooActivity"
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".activity.OrderSheetActivity"
             android:label="@string/app_order_sheet" />

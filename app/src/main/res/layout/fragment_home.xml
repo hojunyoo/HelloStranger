@@ -17,21 +17,45 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <ImageView
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/HomeFragmnet_imageButton_categoryl"
-                android:src="@drawable/home_tradi"
-                android:scaleType="fitXY"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
 
-            <ImageView
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/HomeFragmnet_imageButton_categoryl"
+                    android:src="@drawable/home_tradi"
+                    android:scaleType="fitXY"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/traditional"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+            <ImageView
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/HomeFragmnet_imageButton_category2"
                 android:scaleType="fitXY"
                 android:src="@drawable/home_rice"
-                android:layout_weight="1"/>
+                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/rice"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -39,17 +63,33 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:id="@+id/HomeFragmnet_imageButton_category3"
-                android:text="Noodle"
-                android:scaleType="fitXY"
-                android:textColor="@color/white"
-                android:background="@drawable/home_noodle"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/HomeFragmnet_imageButton_category3"
+                    android:scaleType="fitXY"
+                    android:textColor="@color/white"
+                    android:background="@drawable/home_noodle"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/noodle"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
 
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -59,6 +99,14 @@
                 android:textColor="@color/white"
                 android:background="@drawable/home_bbq"
                 android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/bbq"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -66,7 +114,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
-
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -76,7 +127,18 @@
                 android:scaleType="fitXY"
                 android:layout_weight="1"
                  />
-
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/snack"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -85,6 +147,14 @@
                 android:textColor="@color/white"
                 android:background="@drawable/home_fastfood"
                 android:layout_weight="1"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/fastfood"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:attr/textAppearanceLarge"/>
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 </FrameLayout>

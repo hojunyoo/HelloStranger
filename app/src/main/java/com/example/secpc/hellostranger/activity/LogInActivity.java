@@ -101,7 +101,7 @@ public class LogInActivity extends AppCompatActivity {
     }
 
     private void buttonEffect() {
-        join.setText("로그인");
+        join.setText("Log in");
         login.startAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_out));
         login.setVisibility(View.GONE);
         new Handler().postDelayed(new Runnable() {
