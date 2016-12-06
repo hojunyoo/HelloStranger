@@ -116,6 +116,10 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
 
         LayoutInflater inflaters = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         FrameLayout parent = (FrameLayout)view.findViewById(R.id.quickMenu_framelayout);
+
+
+//        View flipv2 = inflaters.inflate(R.layout.quickmenu_flipview, parent);
+//        View flipv3 = inflaters.inflate(R.layout.quickmenu_flipview, parent);
         View flipv = inflaters.inflate(R.layout.quickmenu_flipview, parent);
 // fill in any details dynamically here
         TextView textView = (TextView) flipv.findViewById(R.id.quickMenu_store_name);
@@ -159,8 +163,8 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
 //        flipview2 = view.findViewById(R.id.flipview2);
 //        flipview3 = view.findViewById(R.id.flipview3);
         flipv.setOnTouchListener(this);
-//        flipview2.setOnTouchListener(this);
-//        flipview3.setOnTouchListener(this);
+//        flipv2.setOnTouchListener(this);
+//        flipv3.setOnTouchListener(this);
 
         return view;
     }
@@ -205,13 +209,13 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
                 int v2 = (int) mVelocityTracker.getYVelocity(); // x 축 이동 속도를 구함
 
                 if(Math.abs(v) > 100 || Math.abs(v2) >100){
-                    if(Math.abs(v)-Math.abs(v2)>0){
-                        startTranslate(view, v, v2);
-                    }
-                    else{
-                    //    startTranslate(view, v, v2);
-                    }
-
+//                    if(Math.abs(v)-Math.abs(v2)>0){
+//                        startTranslate(view, v, v2);
+//                    }
+//                    else{
+//                        //
+//                    }
+                    startTranslate(view, v, v2);
                 }
                 else{
                     startTranslate2(view);
@@ -264,32 +268,31 @@ public class QuickMenuFragment extends Fragment implements View.OnTouchListener{
         TranslateAnimation ani;
         if(Math.abs(v)-Math.abs(v2)>0){
             if(v>0){
-                delX = 1.0f;
-                delY = 1.0f;
+                delX = 1.0f-view.getX();
+                delY = 1.0f-view.getY();
             }
             else{
-                delX = -1.0f;
-                delY = 1.0f;
+                delX = -1.0f+view.getX();
+                delY = 1.0f-view.getY();
             }
         }
         else{
             if(v2>0){
-                delX = 1.0f;
-                delY = -1.0f;
+                delX = 1.0f-view.getX();
+                delY = -1.0f+view.getY();
             }
             else{
-                delX = 1.0f;
-                delY = 1.0f;
+                delX = 1.0f-view.getX();
+                delY = 1.0f-view.getY();
             }
         }
         ani = new TranslateAnimation(
                 Animation.RELATIVE_TO_SELF, 0,
-                Animation.RELATIVE_TO_PARENT, delX,
+                Animation.RELATIVE_TO_SELF, delX,
                 Animation.RELATIVE_TO_SELF, 0,
-                Animation.RELATIVE_TO_PARENT, delY);
+                Animation.RELATIVE_TO_SELF, delY);
         ani.setFillAfter(true); // 애니메이션 후 이동한좌표에
         ani.setDuration(100); //지속시간
-
         view.startAnimation(ani);
         view.setVisibility(View.GONE);
 
