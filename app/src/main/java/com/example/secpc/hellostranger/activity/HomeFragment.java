@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.secpc.hellostranger.R;
 
@@ -71,13 +73,13 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        Button[] buttons = new Button[6];
+        ImageView[] buttons = new ImageView[6];
 
         ((MainActivity)getActivity()).toolbar.setTitle(R.string.app_home);
 
         for(int i=0;i<6;i++){
             //후에 배열별로 id연결 및 이벤트 구현해야함
-            buttons[i] = (Button) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
+            buttons[i] = (ImageView) view.findViewById(R.id.HomeFragmnet_imageButton_categoryl);
             buttons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

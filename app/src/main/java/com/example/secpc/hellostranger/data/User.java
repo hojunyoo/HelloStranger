@@ -11,6 +11,11 @@ public class User {
     private Store[] keep;
     private int taboo;
 
+
+    public static int LANGUAGES_KOR=0;
+    public static int LANGUAGES_ENG=1;
+    public static int LANGUAGES_CHIN=2;
+    public static int LANGUAGES_JAN=3;
     public static int TABOO_NOME=0;
     public static int TABOO_MUSLIM=1;
     public static int TABOO_HINDUISM=2;
@@ -19,7 +24,9 @@ public class User {
     public static int TABOO_LACTO=5;
     public static int TABOO_HACTO=6;
     public static int TABOO_LACTOVO=7;
+    public static int TABOO_PESCO=8;
 
+    public User(){}
     public String getUserId() {
         return userId;
     }

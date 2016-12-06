@@ -60,11 +60,11 @@ public class ServerRequest extends Application{
                                User user = new User(response.getString("id"), response.getString("name"), response.getString("password"), Integer.parseInt(response.getString("lang"))
                                , null, Integer.parseInt(response.getString("for_taboo")));
                                instanceUser = user;
-//                               Log.d("user_id : ", instanceuser.getUserId());
-//                               Log.d("user_name : ", instanceuser.getName());
-//                               Log.d("user_password : ", instanceuser.getPassword());
-//                               Log.d("user_language : ", String.valueOf(instanceuser.getLanguage()));
-//                               Log.d("user_fortaboo : ", String.valueOf(instanceuser.getTaboo()));
+                               Log.d("user_id : ", instanceUser.getUserId());
+                               Log.d("user_name : ", instanceUser.getName());
+                               Log.d("user_password : ", instanceUser.getPassword());
+                               Log.d("user_language : ", String.valueOf(instanceUser.getLanguage()));
+                               Log.d("user_fortaboo : ", String.valueOf(instanceUser.getTaboo()));
 
                             } catch (JSONException e) {
                                e.printStackTrace();

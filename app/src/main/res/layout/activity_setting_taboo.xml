@@ -26,14 +26,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/pollo"
             android:layout_marginRight="@dimen/fab_margin"
-            android:id="@+id/imgBtnPollo" />
+            android:id="@+id/TabooActivity_ImageButton_pollo" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/pesco"
             android:layout_marginLeft="@dimen/fab_margin"
-            android:id="@+id/imgBtnPesco" />
+            android:id="@+id/TabooActivity_ImageButton_pesco" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,21 +48,21 @@
             android:layout_height="wrap_content"
             android:background="@drawable/lacto"
             android:layout_marginRight="@dimen/fab_margin"
-            android:id="@+id/imgBtnLacto" />
+            android:id="@+id/TabooActivity_ImageButton_lacto" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ovo"
             android:layout_margin="@dimen/fab_margin"
-            android:id="@+id/imgBtnOvo" />
+            android:id="@+id/TabooActivity_ImageButton_ovo" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/lactovo"
             android:layout_marginLeft="@dimen/fab_margin"
-            android:id="@+id/imgBtnLactovo" />
+            android:id="@+id/TabooActivity_ImageButton_lactovo" />
     </LinearLayout>
 
     <LinearLayout
@@ -77,14 +77,14 @@
             android:layout_height="wrap_content"
             android:background="@drawable/hinduism"
             android:layout_marginRight="@dimen/fab_margin"
-            android:id="@+id/imgBtnHinduism" />
+            android:id="@+id/TabooActivity_ImageButton_hinduism" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/muslim"
             android:layout_marginLeft="@dimen/fab_margin"
-            android:id="@+id/imgBtnMuslim" />
+            android:id="@+id/TabooActivity_ImageButton_muslim" />
     </LinearLayout>
 
     <LinearLayout
@@ -98,7 +98,7 @@
             android:layout_weight="@string/for_having_equal_width"
             android:layout_height="match_parent"
             android:background="@drawable/taboo_skip_icon"
-            android:id="@+id/imgBtnSkip"
+            android:id="@+id/TabooActivity_ImageButton_skip"
             android:layout_alignParentBottom="true" />
 
         <ImageButton
@@ -106,9 +106,9 @@
             android:layout_weight="@string/for_having_equal_width"
             android:layout_height="match_parent"
             android:background="@drawable/taboo_select_icon"
-            android:id="@+id/imgBtnSelect"
+            android:id="@+id/TabooActivity_ImageButton_selet"
             android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/imgBtnSkip" />
+            android:layout_toRightOf="@+id/TabooActivity_ImageButton_skip" />
 
     </LinearLayout>
 

@@ -39,4 +39,12 @@ public class MyApplication extends Application {
     public void setFloating_back(FloatingActionButton floating_back) {
         this.floating_back = floating_back;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
