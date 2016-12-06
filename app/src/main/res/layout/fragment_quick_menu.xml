@@ -4,24 +4,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activity.QuickMenuFragment">
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/quick_sullungtang_menu"
-        android:visibility="visible"
+
+    <include layout="@layout/quickmenu_flipview"
         android:id="@+id/flipview3" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/quick_ganjang_menu"
-        android:visibility="visible"
+    <include layout="@layout/quickmenu_flipview"
         android:id="@+id/flipview2" />
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/quick_thekkini_menu"
-        android:id="@+id/flipview" />
+    <include layout="@layout/quickmenu_flipview"
+        android:id="@+id/flipview1" />
 </FrameLayout>

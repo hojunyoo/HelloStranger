@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity
     public FloatingActionButton floating_back;
     public FloatingActionButton floating_select;
     public FloatingActionButton floating_keep;
-    public static int MAINPAGE=1;
+    public static String MAINPAGE="1";
     public Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

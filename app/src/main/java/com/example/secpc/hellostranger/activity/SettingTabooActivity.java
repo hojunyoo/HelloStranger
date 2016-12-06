@@ -24,7 +24,7 @@ public class SettingTabooActivity extends Activity {
     String id;
     String password;
     String language;
-    String pageType;
+    String pageType="0";
     ImageButton[] taboo = new ImageButton[7];
     @Override
     protected void onCreate(Bundle savedInstanceState) {

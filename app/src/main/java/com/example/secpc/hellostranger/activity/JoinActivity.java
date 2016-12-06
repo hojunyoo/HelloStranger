@@ -15,7 +15,7 @@ import com.example.secpc.hellostranger.data.User;
 
 public class JoinActivity extends AppCompatActivity {
     int languageData=-1;
-    public static int JOINPAGE=0;
+    public static String JOINPAGE="0";
     ImageButton[] buttons_languages = new ImageButton[4];
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -117,9 +117,9 @@ public class ServerRequest extends Application{
                     public void onResponse(JSONObject response) {
                      try
                         {
-                            Log.d("여긴왔니?", "응");
-                            instanceStore.setStoreId(response.getString("store_id"));
-                            Log.d("stingid : ", instanceStore.getStoreId());
+                            Store store = new Store();
+                            store.setStoreId(response.getString("store_id"));
+                           Log.d("여기는? : ", store.getStoreId());
                            JSONArray datas = response.getJSONArray("menu");
                             int size = datas.length();
                             Log.i("size", String.valueOf(size));
@@ -161,6 +161,10 @@ public class ServerRequest extends Application{
                                 }
 
                             }
+                            store.setMenus(instanceMenu);
+                            DataInstance.store.add(store);
+                            Log.d("가게이름 : ", (DataInstance.store).get(DataInstance.storeIndex).getClass().getName());
+                            DataInstance.storeIndex=(DataInstance.storeIndex+1)%10;
                         }
                         catch (Exception e)
                         {

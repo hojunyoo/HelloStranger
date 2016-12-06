@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 import com.example.secpc.hellostranger.R;
+import com.example.secpc.hellostranger.controller.ServerRequest;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -26,6 +27,14 @@ public class SplashActivity extends AppCompatActivity {
         * gif file with glide image loading
         */
         ImageView splashView = (ImageView) findViewById(R.id.fullscreen_content_controls);
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=uzqxdbpwheomjatgklrs170350");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=kfdrpwbmjnutahzisloc197033");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=pbftlzeusymqhwgxjnak204675");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=oesglxniztvbmycjfqrp212125");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=bcygkxdwazsfilujvopm239331");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=buzheilkwcxrvdgspatn252154");
+        ServerRequest.sendQuickMenuRequest(getApplicationContext(), ServerRequest.SeverUrl+"streets/manu_pan?beacon_id=uozvygwbpcmkrnjdxitl258705");
+
         GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(splashView);
         if(splashView != null)
             Glide.with(this).load(R.drawable.splash_hello_stranger0).crossFade().into(imageViewTarget);
