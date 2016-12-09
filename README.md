@@ -43,6 +43,14 @@ ___
  매장에 방문한 사용자를 트래킹하여 해당 매장의 리뷰 채팅방 접근여부를 결정한다. 방문 전의 사용자들은 리뷰를 읽기(only read)만 가능하고 방문 후 사용자들은 리뷰 쓰기(read&wrtie)가 가능하다.
 
 <br><br>
+소개영상
+
+https://www.youtube.com/watch?v=7hpoo1Dh_qI
+
+<br><br>
+
+
+
 
 #### Project의 상세 구조를 wiki에 작성.
 
@@ -58,4 +66,4 @@ Volley - volley에 관해 정리한 참고 문서
 
 이슈정리 - 개발 중 발생한 ide 이슈를 정리(IDE이슈만)
 
-화면설계 - 사용자 시나리오 및 화면설계, 소개 영상 url 첨부
+화면설계 - (파일에 user_flow.png, activity_flow를 참고)사용자 시나리오 및 화면설계, 소개 영상 url 첨부
