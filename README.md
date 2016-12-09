@@ -29,25 +29,6 @@ ___
 
 <br><br>
 
-## 어플리케이션 실행 흐름
-
- <사용자 시나리오>
-
-![KakaoTalk_20161128_233359568](C:\Users\sejini\Documents\카카오톡 받은 파일\KakaoTalk_20161128_233359568.png)
-
-
-
-<화면 설계>
-
- ![KakaoTalk_20161128_233417211](C:\Users\sejini\Documents\카카오톡 받은 파일\KakaoTalk_20161128_233417211.png)
-
-<br><br>
-
-<소개 영상>
-
-https://www.youtube.com/watch?v=7hpoo1Dh_qI
-
-<br><br>
 
 ### 주요 기술
 
@@ -77,3 +58,4 @@ Volley - volley에 관해 정리한 참고 문서
 
 이슈정리 - 개발 중 발생한 ide 이슈를 정리(IDE이슈만)
 
+화면설계 - 사용자 시나리오 및 화면설계, 소개 영상 url 첨부
